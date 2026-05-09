@@ -24,7 +24,7 @@ export default async function handler(req, res) {
           generationConfig: {
             temperature: 0.4,
             maxOutputTokens: 8192,
-            responseMimeType: 'application/json'   // force Gemini to return pure JSON
+            responseMimeType: 'application/json'
           }
         })
       }
@@ -38,21 +38,23 @@ export default async function handler(req, res) {
 
     let text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
 
-    // Strip markdown fences just in case
+    // Clean any markdown fences
     text = text.replace(/^```[\w]*\n?/gm, '').replace(/```$/gm, '').trim();
 
-    // Extract JSON object if wrapped in extra text
+    // Extract JSON object
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (jsonMatch) text = jsonMatch[0];
 
-    // Validate parsability on server before sending
+    // Parse on SERVER and send back as object — client never needs to parse
+    let parsed;
     try {
-      JSON.parse(text);
+      parsed = JSON.parse(text);
     } catch {
       return res.status(500).json({ error: 'AI returned malformed JSON. Please retry.' });
     }
 
-    return res.status(200).json({ text });
+    // Send the already-parsed object directly
+    return res.status(200).json({ data: parsed });
 
   } catch (err) {
     return res.status(500).json({ error: err.message });
