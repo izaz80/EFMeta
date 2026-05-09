@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-05-09T20:55:34.737Z",
-  "count": 103,
+  "scraped_at": "2026-05-09T21:07:52.200Z",
+  "count": 80,
   "players": [
     {
       "name": "Vinícius Júnior",
@@ -63,561 +63,423 @@
       "type": "featured"
     },
     {
-      "name": "104   Lionel Messi",
-      "overall": 94,
-      "position": "RWF",
-      "type": "legend"
-    },
-    {
-      "name": "102   Lionel Messi",
-      "overall": 93,
-      "position": "RWF",
-      "type": "legend"
-    },
-    {
-      "name": "102   Johan Cruyff",
+      "name": "Johan Cruyff",
       "overall": 93,
       "position": "SS",
       "type": "legend"
     },
     {
-      "name": "102   Neymar Jr",
+      "name": "Zico",
+      "overall": 92,
+      "position": "AMF",
+      "type": "legend"
+    },
+    {
+      "name": "Neymar Jr",
       "overall": 92,
       "position": "LWF",
       "type": "legend"
     },
     {
-      "name": "101   Johan Cruyff",
-      "overall": 92,
-      "position": "SS",
+      "name": "Franz Beckenbauer",
+      "overall": 91,
+      "position": "CB",
       "type": "legend"
     },
     {
-      "name": "101   Zico",
-      "overall": 92,
-      "position": "AMF",
-      "type": "legend"
-    },
-    {
-      "name": "101   Iker Casillas",
+      "name": "Iker Casillas",
       "overall": 91,
       "position": "GK",
       "type": "legend"
     },
     {
-      "name": "99   Zico",
+      "name": "Ronaldinho Gaúcho",
       "overall": 91,
       "position": "AMF",
       "type": "legend"
     },
     {
-      "name": "101   Andrés Iniesta",
+      "name": "Andrés Iniesta",
       "overall": 91,
       "position": "CMF",
       "type": "legend"
     },
     {
-      "name": "100   Cristiano Ronaldo",
+      "name": "Cristiano Ronaldo",
       "overall": 91,
       "position": "CF",
       "type": "legend"
     },
     {
-      "name": "100   Neymar Jr",
-      "overall": 91,
-      "position": "LWF",
-      "type": "legend"
-    },
-    {
-      "name": "100   Franz Beckenbauer",
-      "overall": 91,
-      "position": "CB",
-      "type": "legend"
-    },
-    {
-      "name": "101   Ronaldinho Gaúcho",
-      "overall": 91,
-      "position": "AMF",
-      "type": "legend"
-    },
-    {
-      "name": "100   Romário",
+      "name": "Romário",
       "overall": 91,
       "position": "CF",
       "type": "legend"
     },
     {
-      "name": "100   K. Heinz Rummenigge",
-      "overall": 90,
-      "position": "SS",
-      "type": "legend"
-    },
-    {
-      "name": "99   Fabio Cannavaro",
-      "overall": 90,
-      "position": "CB",
-      "type": "legend"
-    },
-    {
-      "name": "99   Dennis Bergkamp",
-      "overall": 90,
-      "position": "SS",
-      "type": "legend"
-    },
-    {
-      "name": "100   Ronaldinho Gaúcho",
-      "overall": 90,
-      "position": "AMF",
-      "type": "legend"
-    },
-    {
-      "name": "99   Patrick Vieira",
+      "name": "Patrick Vieira",
       "overall": 90,
       "position": "DMF",
       "type": "legend"
     },
     {
-      "name": "100   Oliver Kahn",
+      "name": "K. Heinz Rummenigge",
       "overall": 90,
-      "position": "GK",
+      "position": "SS",
       "type": "legend"
     },
     {
-      "name": "99   Franz Beckenbauer",
-      "overall": 90,
-      "position": "CB",
-      "type": "legend"
-    },
-    {
-      "name": "99   Marco van Basten",
-      "overall": 90,
-      "position": "CF",
-      "type": "legend"
-    },
-    {
-      "name": "99   Romário",
-      "overall": 90,
-      "position": "CF",
-      "type": "legend"
-    },
-    {
-      "name": "100   Andrés Iniesta",
-      "overall": 90,
-      "position": "CMF",
-      "type": "legend"
-    },
-    {
-      "name": "99   Iker Casillas",
-      "overall": 90,
-      "position": "GK",
-      "type": "legend"
-    },
-    {
-      "name": "99   Oliver Kahn",
-      "overall": 90,
-      "position": "GK",
-      "type": "legend"
-    },
-    {
-      "name": "100   Patrick Vieira",
-      "overall": 90,
-      "position": "DMF",
-      "type": "legend"
-    },
-    {
-      "name": "100   Alessandro Nesta",
+      "name": "Fabio Cannavaro",
       "overall": 90,
       "position": "CB",
       "type": "legend"
     },
     {
-      "name": "106   Pelé",
+      "name": "Dennis Bergkamp",
+      "overall": 90,
+      "position": "SS",
+      "type": "legend"
+    },
+    {
+      "name": "Oliver Kahn",
+      "overall": 90,
+      "position": "GK",
+      "type": "legend"
+    },
+    {
+      "name": "Marco van Basten",
+      "overall": 90,
+      "position": "CF",
+      "type": "legend"
+    },
+    {
+      "name": "Alessandro Nesta",
+      "overall": 90,
+      "position": "CB",
+      "type": "legend"
+    },
+    {
+      "name": "Pelé",
       "overall": 89,
       "position": "SS",
       "type": "epic"
     },
     {
-      "name": "99   Frank Lampard",
+      "name": "Frank Lampard",
       "overall": 89,
       "position": "CMF",
       "type": "legend"
     },
     {
-      "name": "105   Johan Cruyff",
-      "overall": 88,
-      "position": "CF",
-      "type": "epic"
-    },
-    {
-      "name": "105   Pelé",
-      "overall": 88,
-      "position": "CF",
-      "type": "epic"
-    },
-    {
-      "name": "103   Johan Cruyff",
-      "overall": 88,
-      "position": "SS",
-      "type": "epic"
-    },
-    {
-      "name": "104   Michel Platini",
+      "name": "Michel Platini",
       "overall": 87,
       "position": "AMF",
       "type": "epic"
     },
     {
-      "name": "105   Franco Baresi",
+      "name": "Franco Baresi",
       "overall": 87,
       "position": "CB",
       "type": "epic"
     },
     {
-      "name": "105   Franz Beckenbauer",
-      "overall": 87,
-      "position": "CB",
-      "type": "epic"
-    },
-    {
-      "name": "104   Andrea Pirlo",
+      "name": "Andrea Pirlo",
       "overall": 87,
       "position": "DMF",
       "type": "epic"
     },
     {
-      "name": "104   Roberto Carlos",
+      "name": "Roberto Carlos",
       "overall": 87,
       "position": "LB",
       "type": "epic"
     },
     {
-      "name": "104   Patrick Vieira",
-      "overall": 87,
-      "position": "DMF",
-      "type": "epic"
-    },
-    {
-      "name": "104   Ousmane Dembélé",
+      "name": "Ousmane Dembélé",
       "overall": 87,
       "position": "CF",
       "type": "epic"
     },
     {
-      "name": "104   Andriy Shevchenko",
+      "name": "Andriy Shevchenko",
       "overall": 87,
       "position": "CF",
       "type": "epic"
     },
     {
-      "name": "104   Ruud Gullit",
+      "name": "Ruud Gullit",
       "overall": 87,
       "position": "AMF",
       "type": "epic"
     },
     {
-      "name": "100   Lothar Matthäus",
+      "name": "Lothar Matthäus",
       "overall": 87,
       "position": "CMF",
       "type": "epic"
     },
     {
-      "name": "102   Iker Casillas",
-      "overall": 87,
-      "position": "GK",
-      "type": "epic"
-    },
-    {
-      "name": "104   Pavel Nedvěd",
+      "name": "Pavel Nedvěd",
       "overall": 87,
       "position": "AMF",
       "type": "epic"
     },
     {
-      "name": "104   Francesco Totti",
+      "name": "Francesco Totti",
       "overall": 87,
       "position": "AMF",
       "type": "epic"
     },
     {
-      "name": "104   Fabio Cannavaro",
-      "overall": 87,
-      "position": "CB",
-      "type": "epic"
-    },
-    {
-      "name": "104 LMF  Neymar Jr",
-      "overall": 87,
-      "position": null,
-      "type": "epic"
-    },
-    {
-      "name": "104   Eden Hazard",
+      "name": "Eden Hazard",
       "overall": 87,
       "position": "AMF",
       "type": "epic"
     },
     {
-      "name": "104   Luis Suárez",
+      "name": "Luis Suárez",
       "overall": 87,
       "position": "CF",
       "type": "epic"
     },
     {
-      "name": "104   Eric Cantona",
+      "name": "Eric Cantona",
       "overall": 87,
       "position": "CF",
       "type": "epic"
     },
     {
-      "name": "104 RMF  Luís Figo",
-      "overall": 87,
-      "position": null,
-      "type": "epic"
-    },
-    {
-      "name": "104   Carles Puyol",
+      "name": "Carles Puyol",
       "overall": 87,
       "position": "CB",
       "type": "epic"
     },
     {
-      "name": "104   Ronaldinho Gaúcho",
+      "name": "Franck Ribéry",
       "overall": 87,
       "position": "LWF",
       "type": "epic"
     },
     {
-      "name": "104   Franck Ribéry",
-      "overall": 87,
-      "position": "LWF",
-      "type": "epic"
-    },
-    {
-      "name": "104   Philipp Lahm",
+      "name": "Philipp Lahm",
       "overall": 87,
       "position": "RB",
       "type": "epic"
     },
     {
-      "name": "104   Zico",
+      "name": "Kaká",
       "overall": 87,
       "position": "AMF",
       "type": "epic"
     },
     {
-      "name": "104   Andrés Iniesta",
-      "overall": 87,
-      "position": "CMF",
-      "type": "epic"
-    },
-    {
-      "name": "104   Kaká",
-      "overall": 87,
-      "position": "AMF",
-      "type": "epic"
-    },
-    {
-      "name": "104   Edwin van der Sar",
+      "name": "Edwin van der Sar",
       "overall": 87,
       "position": "GK",
       "type": "epic"
     },
     {
-      "name": "104   Gianluigi Buffon",
+      "name": "Gianluigi Buffon",
       "overall": 87,
       "position": "GK",
       "type": "epic"
     },
     {
-      "name": "87   Michel Platini",
-      "overall": 87,
-      "position": "AMF",
-      "type": "new"
-    },
-    {
-      "name": "99   Julián Alvarez",
+      "name": "Julián Alvarez",
       "overall": 86,
       "position": "CF",
       "type": "new"
     },
     {
-      "name": "99   Enzo Fernández",
+      "name": "Enzo Fernández",
       "overall": 86,
       "position": "CMF",
       "type": "new"
     },
     {
-      "name": "85   Roberto Donadoni",
+      "name": "Roberto Donadoni",
       "overall": 85,
       "position": "CMF",
       "type": "new"
     },
     {
-      "name": "85   Demetrio Albertini",
+      "name": "Demetrio Albertini",
       "overall": 85,
       "position": "DMF",
       "type": "new"
     },
     {
-      "name": "97   Alexis Mac Allister",
+      "name": "Alexis Mac Allister",
       "overall": 84,
       "position": "CMF",
       "type": "new"
     },
     {
-      "name": "97   Dani Olmo",
+      "name": "Dani Olmo",
       "overall": 84,
       "position": "AMF",
       "type": "new"
     },
     {
-      "name": "79   Germán Berterame",
+      "name": "Germán Berterame",
       "overall": 76,
       "position": "CF",
       "type": "new"
     },
     {
-      "name": "77   Sergio Reguilón",
+      "name": "Sergio Reguilón",
       "overall": 74,
       "position": "LB",
       "type": "new"
     },
     {
-      "name": "77   Héctor Herrera",
+      "name": "Héctor Herrera",
       "overall": 73,
       "position": "CMF",
       "type": "new"
     },
     {
-      "name": "75 RMF  Herman Johansson",
-      "overall": 72,
-      "position": null,
-      "type": "new"
-    },
-    {
-      "name": "76 RMF  Bryan Ramírez",
-      "overall": 72,
-      "position": null,
-      "type": "new"
-    },
-    {
-      "name": "74   Tyler Miller",
+      "name": "Tyler Miller",
       "overall": 71,
       "position": "GK",
       "type": "new"
     },
     {
-      "name": "74   Louis Munteanu",
+      "name": "Louis Munteanu",
       "overall": 71,
       "position": "CF",
       "type": "new"
     },
     {
-      "name": "74   Roque Mesa",
+      "name": "Roque Mesa",
       "overall": 71,
       "position": "CMF",
       "type": "new"
     },
     {
-      "name": "73   Callum Montgomery",
+      "name": "Callum Montgomery",
       "overall": 70,
       "position": "CB",
       "type": "new"
     },
     {
-      "name": "73   Ezekiel Alladoh",
+      "name": "Ezekiel Alladoh",
       "overall": 70,
       "position": "CF",
       "type": "new"
     },
     {
-      "name": "73   Silvan Hefti",
+      "name": "Silvan Hefti",
       "overall": 70,
       "position": "RB",
       "type": "new"
     },
     {
-      "name": "73   Tomás Jacob",
+      "name": "Tomás Jacob",
       "overall": 70,
       "position": "CB",
       "type": "new"
     },
     {
-      "name": "71   Maxwell Woledzi",
+      "name": "Maxwell Woledzi",
       "overall": 69,
       "position": "CB",
       "type": "new"
     },
     {
-      "name": "72   Ran Binyamin",
+      "name": "Ran Binyamin",
       "overall": 69,
       "position": "CMF",
       "type": "new"
     },
     {
-      "name": "72   Marcelo Palomino",
+      "name": "Marcelo Palomino",
       "overall": 69,
       "position": "CMF",
       "type": "new"
     },
     {
-      "name": "72   Alex Bonetig",
+      "name": "Alex Bonetig",
       "overall": 69,
       "position": "CB",
       "type": "new"
     },
     {
-      "name": "72   Kai Trewin",
+      "name": "Kai Trewin",
       "overall": 69,
       "position": "CB",
       "type": "new"
     },
     {
-      "name": "72   Marco Ruben",
+      "name": "Marco Ruben",
       "overall": 69,
       "position": "CF",
       "type": "new"
     },
     {
-      "name": "72   Bruno Lapa",
+      "name": "Bruno Lapa",
       "overall": 69,
       "position": "AMF",
       "type": "new"
     },
     {
-      "name": "72   Kadeem Cole",
+      "name": "Kadeem Cole",
       "overall": 69,
       "position": "CMF",
       "type": "new"
     },
     {
-      "name": "71   Geiner Martínez",
+      "name": "Geiner Martínez",
       "overall": 68,
       "position": "CB",
       "type": "new"
     },
     {
-      "name": "71   Mason Tunbridge",
+      "name": "Mason Tunbridge",
       "overall": 68,
       "position": "AMF",
       "type": "new"
     },
     {
-      "name": "71   Nico Brown",
+      "name": "Nico Brown",
       "overall": 68,
       "position": "LWF",
       "type": "new"
     },
     {
-      "name": "71   Andrés Hernández",
+      "name": "Andrés Hernández",
       "overall": 68,
       "position": "CMF",
       "type": "new"
     },
     {
-      "name": "71   Stuart Ritchie",
+      "name": "Stuart Ritchie",
       "overall": 68,
       "position": "LB",
+      "type": "new"
+    },
+    {
+      "name": "87 104 LMF B Neymar Jr",
+      "overall": null,
+      "position": null,
+      "type": "epic"
+    },
+    {
+      "name": "87 104 RMF B Luís Figo",
+      "overall": null,
+      "position": null,
+      "type": "epic"
+    },
+    {
+      "name": "72 75 RMF B Herman Johansson",
+      "overall": null,
+      "position": null,
+      "type": "new"
+    },
+    {
+      "name": "72 76 RMF B Bryan Ramírez",
+      "overall": null,
+      "position": null,
       "type": "new"
     }
   ]
