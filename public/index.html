@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>eFootball Meta — AI-Powered Tier List & Patch Analysis</title>
+  <title>eFMeta — AI-Powered eFootball Tier List & Patch Analysis</title>
+  <meta name="description" content="AI-generated meta tier list and patch breakdowns for eFootball. Updated every patch. Free." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
@@ -34,7 +35,6 @@
       overflow-x: hidden;
     }
 
-    /* BACKGROUND */
     body::before {
       content: '';
       position: fixed;
@@ -46,7 +46,6 @@
       z-index: 0;
     }
 
-    /* GRID OVERLAY */
     body::after {
       content: '';
       position: fixed;
@@ -84,11 +83,7 @@
       justify-content: space-between;
     }
 
-    .logo {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-    }
+    .logo { display: flex; align-items: baseline; gap: 8px; }
 
     .logo-main {
       font-family: 'Bebas Neue', sans-serif;
@@ -144,15 +139,8 @@
       animation: fadeUp 0.6s ease forwards 0.2s;
     }
 
-    .hero-title span {
-      color: var(--accent);
-      text-shadow: 0 0 40px rgba(0,229,255,0.5);
-    }
-
-    .hero-title .red {
-      color: var(--accent2);
-      text-shadow: 0 0 40px rgba(255,61,87,0.4);
-    }
+    .hero-title span { color: var(--accent); text-shadow: 0 0 40px rgba(0,229,255,0.5); }
+    .hero-title .red { color: var(--accent2); text-shadow: 0 0 40px rgba(255,61,87,0.4); }
 
     .hero-desc {
       font-size: 16px;
@@ -209,101 +197,40 @@
       transition: all 0.2s;
     }
 
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* GEMINI KEY INPUT */
-    .api-setup {
+    /* DATA STATUS BAR */
+    .data-bar {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-top: 2px solid var(--accent);
-      padding: 32px;
-      margin: 0 0 60px;
-      position: relative;
+      border-left: 3px solid var(--s);
+      padding: 12px 20px;
+      margin-bottom: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
       opacity: 0;
       animation: fadeUp 0.6s ease forwards 0.5s;
     }
 
-    .api-setup-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .api-setup-desc {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .api-setup-desc a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .api-input-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .api-input {
-      flex: 1;
-      min-width: 260px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 12px 16px;
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .api-input:focus {
-      border-color: var(--accent);
-    }
-
-    .api-input::placeholder {
-      color: var(--muted);
-    }
-
-    .btn-save {
-      background: var(--accent);
-      color: var(--bg);
-      border: none;
-      padding: 12px 24px;
-      font-family: 'Barlow', sans-serif;
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.2s;
-      white-space: nowrap;
-    }
-
-    .btn-save:hover { background: #fff; }
-
-    .api-status {
-      margin-top: 10px;
+    .data-bar-left {
       font-family: 'DM Mono', monospace;
       font-size: 12px;
+      color: var(--muted);
     }
 
-    .api-status.ok { color: var(--s); }
-    .api-status.err { color: var(--accent2); }
+    .data-bar-left strong { color: var(--s); }
 
-    /* SECTION HEADERS */
-    .section {
-      margin-bottom: 80px;
+    .data-bar-right {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
     }
+
+    /* SECTION */
+    .section { margin-bottom: 80px; }
 
     .section-header {
       display: flex;
@@ -323,24 +250,31 @@
       line-height: 1;
     }
 
-    .section-title span {
-      color: var(--accent);
+    .section-title span { color: var(--accent); }
+    .section-meta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 2px; }
+
+    /* AI TAG */
+    .ai-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      padding: 4px 8px;
+      border: 1px solid var(--border);
     }
 
-    .section-meta {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 2px;
+    .ai-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
     }
 
     /* POSITION TABS */
-    .pos-tabs {
-      display: flex;
-      gap: 4px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
+    .pos-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 28px; }
 
     .pos-tab {
       font-family: 'DM Mono', monospace;
@@ -355,26 +289,12 @@
     }
 
     .pos-tab:hover { color: var(--text); border-color: var(--muted); }
-    .pos-tab.active {
-      background: var(--accent);
-      color: var(--bg);
-      border-color: var(--accent);
-      font-weight: 500;
-    }
+    .pos-tab.active { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 500; }
 
     /* TIER LIST */
-    .tier-list {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
+    .tier-list { display: flex; flex-direction: column; gap: 4px; }
 
-    .tier-row {
-      display: flex;
-      align-items: stretch;
-      gap: 4px;
-      min-height: 80px;
-    }
+    .tier-row { display: flex; align-items: stretch; gap: 4px; min-height: 80px; }
 
     .tier-label {
       width: 56px;
@@ -384,7 +304,6 @@
       justify-content: center;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 32px;
-      font-weight: 400;
       letter-spacing: 1px;
     }
 
@@ -424,52 +343,9 @@
       box-shadow: 0 4px 16px rgba(0,229,255,0.1);
     }
 
-    .chip-name {
-      font-size: 13px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .chip-meta {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .chip-pos {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      padding: 1px 5px;
-      background: var(--border);
-      color: var(--muted);
-      position: absolute;
-      top: 4px;
-      right: 4px;
-    }
-
-    /* TIER SKELETON / LOADING */
-    .tier-loading {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .skeleton-row {
-      height: 80px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .skeleton-row::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
-      animation: shimmer 1.5s infinite;
-    }
+    .chip-name { font-size: 13px; font-weight: 700; white-space: nowrap; }
+    .chip-meta { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); white-space: nowrap; }
+    .chip-pos { font-family: 'DM Mono', monospace; font-size: 9px; padding: 1px 5px; background: var(--border); color: var(--muted); position: absolute; top: 4px; right: 4px; }
 
     /* GENERATE BUTTON */
     .generate-btn {
@@ -491,28 +367,19 @@
       gap: 12px;
     }
 
-    .generate-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(0,229,255,0.03);
-    }
-
-    .generate-btn:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
+    .generate-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,229,255,0.03); }
+    .generate-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
     .spin {
       display: inline-block;
-      width: 16px;
-      height: 16px;
+      width: 16px; height: 16px;
       border: 2px solid var(--border);
       border-top-color: var(--accent);
       border-radius: 50%;
       animation: spin 0.7s linear infinite;
     }
 
-    /* PATCH SUMMARY */
+    /* PATCH */
     .patch-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -520,108 +387,58 @@
       padding: 32px;
     }
 
-    .patch-version {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--accent2);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
+    .patch-version { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent2); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+    .patch-headline { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; margin-bottom: 24px; }
 
-    .patch-headline {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 1px;
-      margin-bottom: 24px;
-      color: var(--text);
-    }
+    .patch-sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
 
-    .patch-sections {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
+    .patch-section { background: var(--surface2); border: 1px solid var(--border); padding: 20px; }
 
-    .patch-section {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      padding: 20px;
-    }
-
-    .patch-section-title {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
+    .patch-section-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
 
     .patch-section.buffs .patch-section-title { color: var(--s); }
     .patch-section.nerfs .patch-section-title { color: var(--accent2); }
     .patch-section.meta .patch-section-title { color: var(--gold); }
     .patch-section.verdict .patch-section-title { color: var(--accent); }
 
-    .patch-section ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .patch-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 
-    .patch-section ul li {
-      font-size: 14px;
-      line-height: 1.5;
-      color: var(--text);
-      padding-left: 16px;
-      position: relative;
-    }
-
-    .patch-section ul li::before {
-      content: '›';
-      position: absolute;
-      left: 0;
-      color: var(--muted);
-    }
-
+    .patch-section ul li { font-size: 14px; line-height: 1.5; color: var(--text); padding-left: 16px; position: relative; }
+    .patch-section ul li::before { content: '›'; position: absolute; left: 0; color: var(--muted); }
     .patch-section.buffs ul li::before { color: var(--s); }
     .patch-section.nerfs ul li::before { color: var(--accent2); }
 
-    .patch-raw {
-      font-size: 15px;
-      line-height: 1.8;
-      color: var(--text);
-    }
+    .patch-raw { font-size: 15px; line-height: 1.8; color: var(--text); }
 
-    .patch-raw strong {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    /* AI TAG */
-    .ai-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 1px;
-      padding: 4px 8px;
+    /* PATCH INPUT */
+    .patch-input-area {
+      background: var(--surface);
       border: 1px solid var(--border);
+      padding: 24px;
+      margin-bottom: 20px;
     }
 
-    .ai-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      animation: pulse 2s infinite;
+    .input-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+
+    .patch-textarea {
+      width: 100%;
+      height: 130px;
+      resize: vertical;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      outline: none;
+      transition: border-color 0.2s;
     }
 
-    /* ERROR STATE */
+    .patch-textarea:focus { border-color: var(--accent); }
+    .patch-textarea::placeholder { color: var(--muted); }
+
+    /* ERROR */
     .error-box {
       background: rgba(255,61,87,0.05);
       border: 1px solid rgba(255,61,87,0.3);
@@ -632,62 +449,21 @@
       line-height: 1.6;
     }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 0;
-      margin-top: 80px;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: gap;
-      gap: 16px;
-    }
-
-    .footer-note {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .footer-note a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
     /* DIVIDER */
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      margin: 60px 0;
-      opacity: 0.3;
-    }
+    .divider { height: 1px; background: linear-gradient(90deg, var(--accent), transparent); margin: 60px 0; opacity: 0.3; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 80px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-note { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); line-height: 1.7; }
+    .footer-note a { color: var(--accent); text-decoration: none; }
 
     /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 600px) {
       .tier-label { width: 44px; font-size: 24px; }
       .patch-sections { grid-template-columns: 1fr; }
@@ -697,7 +473,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="container">
       <div class="header-inner">
@@ -710,16 +485,17 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <div class="container">
+
+    <!-- HERO -->
     <div class="hero">
-      <p class="hero-eyebrow">Powered by Gemini AI</p>
+      <p class="hero-eyebrow">Powered by Gemini AI · Updated Every Patch</p>
       <h1 class="hero-title">
         KNOW THE<br>
         <span>META.</span> <span class="red">WIN MORE.</span>
       </h1>
       <p class="hero-desc">
-        AI-generated tier lists and patch breakdowns for eFootball, updated every patch. No opinions — just data, synthesized by Gemini.
+        AI-generated tier lists and patch breakdowns for eFootball. No opinions — just data, synthesized by Gemini AI every patch.
       </p>
       <div class="hero-actions">
         <button class="btn-primary" onclick="document.getElementById('tier-section').scrollIntoView({behavior:'smooth'})">View Tier List</button>
@@ -727,30 +503,22 @@
       </div>
     </div>
 
-    <!-- API KEY SETUP -->
-    <div class="api-setup" id="api-setup">
-      <div class="api-setup-label">⚡ Setup — Gemini API Key</div>
-      <p class="api-setup-desc">
-        Enter your free Gemini API key to enable AI analysis. Get one at <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com</a>. Your key is stored locally in your browser only — never sent to any server.
-      </p>
-      <div class="api-input-row">
-        <input class="api-input" type="password" id="gemini-key" placeholder="AIza..." autocomplete="off" />
-        <button class="btn-save" onclick="saveKey()">Save Key</button>
-      </div>
-      <div class="api-status" id="api-status"></div>
+    <!-- DATA STATUS -->
+    <div class="data-bar" id="data-bar">
+      <div class="data-bar-left">Player database: <strong id="player-count">loading...</strong></div>
+      <div class="data-bar-right" id="data-updated">Scraped from efootballhub.net</div>
     </div>
 
-    <!-- TIER LIST SECTION -->
+    <!-- TIER LIST -->
     <div class="section" id="tier-section">
       <div class="section-header">
         <div>
           <div class="section-title">META <span>TIER LIST</span></div>
-          <div class="section-meta" style="margin-top:6px;">AI-generated · Updated per patch</div>
+          <div class="section-meta" style="margin-top:6px;">AI-generated · Current patch</div>
         </div>
         <div class="ai-tag"><span class="ai-dot"></span>Gemini 2.0 Flash</div>
       </div>
 
-      <!-- POSITION TABS -->
       <div class="pos-tabs" id="pos-tabs">
         <button class="pos-tab active" data-pos="ALL" onclick="setPos(this)">ALL</button>
         <button class="pos-tab" data-pos="GK" onclick="setPos(this)">GK</button>
@@ -763,7 +531,6 @@
         <button class="pos-tab" data-pos="CF/SS" onclick="setPos(this)">CF/SS</button>
       </div>
 
-      <!-- TIER LIST OUTPUT -->
       <div id="tier-output">
         <button class="generate-btn" id="gen-tier-btn" onclick="generateTierList()">
           <span>Generate AI Tier List</span>
@@ -773,7 +540,7 @@
 
     <div class="divider"></div>
 
-    <!-- PATCH SUMMARY SECTION -->
+    <!-- PATCH SUMMARY -->
     <div class="section" id="patch-section">
       <div class="section-header">
         <div>
@@ -783,15 +550,12 @@
         <div class="ai-tag"><span class="ai-dot"></span>Gemini 2.0 Flash</div>
       </div>
 
-      <!-- PATCH INPUT -->
-      <div style="margin-bottom: 20px;">
-        <div class="api-setup-label" style="margin-bottom:8px;">Paste Patch Notes (optional)</div>
-        <textarea id="patch-notes-input" class="api-input"
-          style="width:100%;height:140px;resize:vertical;font-size:13px;line-height:1.6;"
-          placeholder="Paste the latest eFootball patch notes here... or leave empty and Gemini will analyze the current known patch (v5.3.0)."></textarea>
+      <div class="patch-input-area">
+        <div class="input-label">Paste Patch Notes (optional)</div>
+        <textarea class="patch-textarea" id="patch-notes-input"
+          placeholder="Paste the latest eFootball patch notes here... or leave empty and Gemini will analyze based on the current patch."></textarea>
       </div>
 
-      <!-- PATCH OUTPUT -->
       <div id="patch-output">
         <button class="generate-btn" id="gen-patch-btn" onclick="generatePatchSummary()">
           <span>Generate Patch Analysis</span>
@@ -801,54 +565,44 @@
 
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-inner">
         <div class="footer-note">
           eFMeta — Community tool, not affiliated with Konami.<br>
-          Player data sourced from <a href="https://www.efootballhub.net" target="_blank">efootballhub.net</a>. AI analysis by Google Gemini.
+          Player data sourced from <a href="https://www.efootballhub.net" target="_blank">efootballhub.net</a>.
         </div>
         <div class="footer-note" style="text-align:right;">
           eFootball™ is property of KONAMI.<br>
-          Free to use · Open source
+          Free · Open source · No ads
         </div>
       </div>
     </div>
   </footer>
 
 <script>
-  // ─── STATE ───────────────────────────────────────────────
-  let API_KEY = localStorage.getItem('gemini_key') || '';
+  // ─── STATE ────────────────────────────────────────────────
+  let playerData = [];
   let currentPos = 'ALL';
   let tierData = null;
 
-  // ─── INIT ─────────────────────────────────────────────────
-  window.onload = () => {
-    if (API_KEY) {
-      document.getElementById('gemini-key').value = API_KEY;
-      document.getElementById('api-status').textContent = '✓ Key loaded from storage';
-      document.getElementById('api-status').className = 'api-status ok';
+  // ─── LOAD SCRAPED PLAYER DATA ─────────────────────────────
+  async function loadPlayers() {
+    try {
+      const res = await fetch('/players.json');
+      if (!res.ok) throw new Error('Not found');
+      const data = await res.json();
+      playerData = data.players || [];
+      document.getElementById('player-count').textContent = `${playerData.length} players loaded`;
+      document.getElementById('data-updated').textContent =
+        `Last scraped: ${new Date(data.scraped_at).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' })}`;
+    } catch {
+      document.getElementById('player-count').textContent = 'using AI knowledge base';
+      document.getElementById('data-updated').textContent = 'Scraper not yet run';
     }
-  };
-
-  // ─── SAVE KEY ─────────────────────────────────────────────
-  function saveKey() {
-    const val = document.getElementById('gemini-key').value.trim();
-    if (!val.startsWith('AIza') || val.length < 20) {
-      setStatus('Invalid key format. Should start with AIza...', 'err');
-      return;
-    }
-    API_KEY = val;
-    localStorage.setItem('gemini_key', val);
-    setStatus('✓ Key saved successfully', 'ok');
   }
 
-  function setStatus(msg, type) {
-    const el = document.getElementById('api-status');
-    el.textContent = msg;
-    el.className = 'api-status ' + type;
-  }
+  loadPlayers();
 
   // ─── POSITION TAB ─────────────────────────────────────────
   function setPos(el) {
@@ -858,30 +612,26 @@
     if (tierData) renderTierList(tierData, currentPos);
   }
 
-  // ─── GEMINI CALL ──────────────────────────────────────────
-  async function callGemini(prompt) {
-    if (!API_KEY) {
-      alert('Please enter your Gemini API key first.');
-      document.getElementById('gemini-key').focus();
-      throw new Error('No API key');
-    }
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.4, maxOutputTokens: 2048 }
-        })
-      }
-    );
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.error?.message || 'Gemini API error');
-    }
+  // ─── CALL BACKEND PROXY ───────────────────────────────────
+  async function callAI(prompt) {
+    const res = await fetch('/api/gemini', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt })
+    });
     const data = await res.json();
-    return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    if (!res.ok) throw new Error(data.error || 'Server error');
+    return data.text;
+  }
+
+  // ─── BUILD PLAYER CONTEXT ─────────────────────────────────
+  function buildPlayerContext() {
+    if (playerData.length === 0) return '';
+    const top = playerData.slice(0, 80); // top 80 by overall
+    const lines = top.map(p =>
+      `${p.name} | ${p.position || '?'} | OVR:${p.overall || '?'} | ${p.type}`
+    ).join('\n');
+    return `\n\nHere is the current live player database scraped from efootballhub.net. Use these players in your tier list where relevant:\n${lines}`;
   }
 
   // ─── GENERATE TIER LIST ───────────────────────────────────
@@ -892,18 +642,18 @@
     btn.disabled = true;
     btn.innerHTML = '<span class="spin"></span><span>Analyzing meta...</span>';
 
-    const prompt = `You are an expert eFootball analyst. Generate a meta tier list for eFootball patch v5.3.0 (March 2026).
+    const playerContext = buildPlayerContext();
 
-Return ONLY a valid JSON object. No markdown, no backticks, no explanation. Just the raw JSON.
+    const prompt = `You are an expert eFootball analyst. Generate a meta tier list for eFootball patch v5.3.0 (March 2026).${playerContext}
+
+Return ONLY a valid JSON object. No markdown, no backticks, no explanation. Raw JSON only.
 
 Format:
 {
   "patch": "v5.3.0",
   "updated": "May 2026",
   "tiers": {
-    "S": [
-      {"name": "Player Name", "pos": "CF", "type": "Epic", "reason": "Short reason why S tier"}
-    ],
+    "S": [{"name": "Player Name", "pos": "CF", "type": "Epic", "reason": "Short reason under 10 words"}],
     "A": [...],
     "B": [...],
     "C": [...],
@@ -912,23 +662,21 @@ Format:
 }
 
 Rules:
-- Include 4-7 players per tier
+- 4-7 players per tier
 - Cover all positions: GK, CB, LB, RB, DMF, CMF, AMF, LWF, RWF, SS, CF
-- Include a mix of Epic, Legend, Featured, and obtainable players
-- Base rankings on: stats at max level, playing style synergy, current patch AI behavior, skill combinations
-- S tier = game-breaking, must use
-- D tier = actively avoid
-- Keep reasons under 10 words
-- Use real eFootball player names (Mbappe, Vinicius Jr, Pedri, Alisson, etc.)`;
+- Mix of Epic, Legend, Featured, and obtainable players
+- Base rankings on: max level stats, playing style synergy, patch AI behavior, skill combos
+- S tier = game-breaking. D tier = actively avoid.
+- Reason under 10 words. Use real eFootball player names.`;
 
     try {
-      const raw = await callGemini(prompt);
+      const raw = await callAI(prompt);
       const clean = raw.replace(/```json|```/g, '').trim();
       tierData = JSON.parse(clean);
       renderTierList(tierData, currentPos);
     } catch(e) {
-      output.innerHTML = `<div class="error-box">Error: ${e.message}<br><br>Try regenerating or check your API key.</div>
-        <button class="generate-btn" style="margin-top:8px" id="gen-tier-btn" onclick="generateTierList()"><span>Retry</span></button>`;
+      output.innerHTML = `<div class="error-box">Error: ${e.message}</div>
+        <button class="generate-btn" style="margin-top:8px" id="gen-tier-btn" onclick="generateTierList()"><span>↻ Retry</span></button>`;
     }
   }
 
@@ -936,6 +684,7 @@ Rules:
   function renderTierList(data, posFilter) {
     const output = document.getElementById('tier-output');
     const tiers = ['S','A','B','C','D'];
+    const tierClass = { S:'tier-s', A:'tier-a', B:'tier-b', C:'tier-c', D:'tier-d' };
 
     let html = '<div class="tier-list">';
 
@@ -943,7 +692,7 @@ Rules:
       let players = data.tiers[tier] || [];
       if (posFilter !== 'ALL') {
         players = players.filter(p => {
-          const pos = p.pos?.toUpperCase();
+          const pos = (p.pos || '').toUpperCase();
           if (posFilter === 'LB/RB') return pos === 'LB' || pos === 'RB';
           if (posFilter === 'CF/SS') return pos === 'CF' || pos === 'SS';
           if (posFilter === 'LWF/RWF') return pos === 'LWF' || pos === 'RWF';
@@ -951,9 +700,7 @@ Rules:
         });
       }
 
-      const tierColors = { S: 'tier-s', A: 'tier-a', B: 'tier-b', C: 'tier-c', D: 'tier-d' };
-
-      html += `<div class="tier-row ${tierColors[tier]}">
+      html += `<div class="tier-row ${tierClass[tier]}">
         <div class="tier-label">${tier}</div>
         <div class="tier-cards">`;
 
@@ -972,11 +719,11 @@ Rules:
       html += `</div></div>`;
     });
 
-    html += '</div>';
-    html += `<div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-      <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted)">Hover cards for reasoning · ${data.updated}</span>
-      <button class="generate-btn" style="width:auto;padding:10px 20px;font-size:12px" id="gen-tier-btn" onclick="generateTierList()">↻ Regenerate</button>
-    </div>`;
+    html += `</div>
+      <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted)">Hover cards to see reasoning · ${data.updated}</span>
+        <button class="generate-btn" style="width:auto;padding:10px 20px;font-size:12px" onclick="generateTierList()">↻ Regenerate</button>
+      </div>`;
 
     output.innerHTML = html;
   }
@@ -991,8 +738,8 @@ Rules:
     btn.innerHTML = '<span class="spin"></span><span>Reading patch notes...</span>';
 
     const notesContext = patchNotes
-      ? `Here are the official patch notes to analyze:\n\n${patchNotes}`
-      : `Analyze eFootball patch v5.3.0 (March 2026) based on your knowledge. This patch overhauled AI defensive positioning and player momentum.`;
+      ? `Analyze these official patch notes:\n\n${patchNotes}`
+      : `Analyze eFootball patch v5.3.0 (March 2026). This patch overhauled AI defensive positioning and player momentum physics.`;
 
     const prompt = `You are an expert eFootball analyst. ${notesContext}
 
@@ -1005,45 +752,42 @@ Format:
   "buffs": ["buff 1", "buff 2", "buff 3", "buff 4"],
   "nerfs": ["nerf 1", "nerf 2", "nerf 3"],
   "meta_shifts": ["shift 1", "shift 2", "shift 3"],
-  "verdict": "2-3 sentence plain English verdict on what this patch means for the average player. What should they do differently? Who should they sign?"
+  "verdict": "2-3 sentence plain English verdict. What should players do differently? Who should they sign?"
 }
 
 Rules:
-- buffs/nerfs/meta_shifts: short, punchy, specific (name players or mechanics)
-- verdict: opinionated and useful, like advice from a top player
-- No generic statements — be specific to eFootball mechanics`;
+- Be specific — name players or mechanics, not generic statements
+- verdict: opinionated and useful, like advice from a top ranked player`;
 
     try {
-      const raw = await callGemini(prompt);
+      const raw = await callAI(prompt);
       const clean = raw.replace(/```json|```/g, '').trim();
       const patchData = JSON.parse(clean);
       renderPatchSummary(patchData);
     } catch(e) {
-      output.innerHTML = `<div class="error-box">Error: ${e.message}<br><br>Try regenerating or check your API key.</div>
-        <button class="generate-btn" style="margin-top:8px" id="gen-patch-btn" onclick="generatePatchSummary()"><span>Retry</span></button>`;
+      output.innerHTML = `<div class="error-box">Error: ${e.message}</div>
+        <button class="generate-btn" style="margin-top:8px" id="gen-patch-btn" onclick="generatePatchSummary()"><span>↻ Retry</span></button>`;
     }
   }
 
   // ─── RENDER PATCH SUMMARY ─────────────────────────────────
   function renderPatchSummary(data) {
-    const output = document.getElementById('patch-output');
-
-    output.innerHTML = `
+    document.getElementById('patch-output').innerHTML = `
       <div class="patch-card">
         <div class="patch-version">${data.version}</div>
         <div class="patch-headline">${data.headline}</div>
         <div class="patch-sections">
           <div class="patch-section buffs">
             <div class="patch-section-title">↑ Buffs & Winners</div>
-            <ul>${(data.buffs||[]).map(b => `<li>${b}</li>`).join('')}</ul>
+            <ul>${(data.buffs||[]).map(b=>`<li>${b}</li>`).join('')}</ul>
           </div>
           <div class="patch-section nerfs">
             <div class="patch-section-title">↓ Nerfs & Losers</div>
-            <ul>${(data.nerfs||[]).map(n => `<li>${n}</li>`).join('')}</ul>
+            <ul>${(data.nerfs||[]).map(n=>`<li>${n}</li>`).join('')}</ul>
           </div>
           <div class="patch-section meta">
             <div class="patch-section-title">⟳ Meta Shifts</div>
-            <ul>${(data.meta_shifts||[]).map(m => `<li>${m}</li>`).join('')}</ul>
+            <ul>${(data.meta_shifts||[]).map(m=>`<li>${m}</li>`).join('')}</ul>
           </div>
           <div class="patch-section verdict">
             <div class="patch-section-title">✦ AI Verdict</div>
@@ -1052,7 +796,7 @@ Rules:
         </div>
       </div>
       <div style="margin-top:16px;display:flex;justify-content:flex-end">
-        <button class="generate-btn" style="width:auto;padding:10px 20px;font-size:12px" id="gen-patch-btn" onclick="generatePatchSummary()">↻ Regenerate</button>
+        <button class="generate-btn" style="width:auto;padding:10px 20px;font-size:12px" onclick="generatePatchSummary()">↻ Regenerate</button>
       </div>`;
   }
 </script>
