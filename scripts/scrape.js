@@ -1,189 +1,112 @@
+// scripts/scrape.js
+// Pulls latest Epic, Featured, and top-rated players from efootballhub.net
+// Saves to public/players.json for the frontend to consume
+
 import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
 import fs from 'fs';
 import path from 'path';
 
 const BASE = 'https://www.efootballhub.net/efootball23';
-const PUBLIC = path.join(process.cwd(), 'public');
 
-async function scrapePlayers(label, url) {
-  console.log(`\nScraping [${label}]: ${url}`);
-  const players = [];
-  const seen = new Set();
+const ENDPOINTS = [
+  { label: 'epic',     url: `${BASE}/search/players?epic=true&GridView=true` },
+  { label: 'featured', url: `${BASE}/search/players?agentSearch=true&GridView=true` },
+  { label: 'legend',   url: `${BASE}/search/players?legend=true&GridView=true` },
+  { label: 'new',      url: `${BASE}/search/players?newPlayers=true&GridView=true` },
+];
 
+async function scrapePage(label, url) {
+  console.log(`Scraping ${label}: ${url}`);
   try {
     const res = await fetch(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml',
+        'User-Agent': 'Mozilla/5.0 (compatible; EFMetaBot/1.0)',
+        'Accept': 'text/html'
       }
     });
-
     const html = await res.text();
     const $ = cheerio.load(html);
-    const POSITIONS = 'GK|CB|LB|RB|DMF|CMF|AMF|LWF|RWF|SS|CF|ST';
 
-    $('a[href*="/player/"]').each((_, el) => {
-      const raw = $(el).text().trim().replace(/\s+/g, ' ');
-      if (!raw || raw.length < 3 || raw.length > 80 || seen.has(raw)) return;
+    const players = [];
 
-      let name = null, overall = null, position = null;
+    // efootballhub player links have the pattern /efootball23/player/ID
+    $('a[href*="/efootball23/player/"]').each((_, el) => {
+      const href = $(el).attr('href') || '';
+      const text = $(el).text().trim();
 
-      // Format A: "89 106 SS B Pelé"  (two nums, pos, condition, name) — Epic/Legend
-      let m = raw.match(new RegExp(`^(\\d{2,3})\\s+\\d{2,3}\\s+(${POSITIONS})\\s+[A-E]\\s+(.+)$`));
-      if (m) { overall = parseInt(m[1]); position = m[2]; name = m[3].trim(); }
+      if (!text || text.length < 3) return;
 
-      // Format B: "98 LWF B Vinícius Júnior"  (one num, pos, condition, name) — Featured
-      if (!name) {
-        m = raw.match(new RegExp(`^(\\d{2,3})\\s+(${POSITIONS})\\s+[A-E]\\s+(.+)$`));
-        if (m) { overall = parseInt(m[1]); position = m[2]; name = m[3].trim(); }
+      // Parse the text format: e.g. "8699CF AEnzo Fernández" or "96CMF APedri"
+      // Format: [overall][position] [condition][name]
+      const match = text.match(/^(\d{2,3})([A-Z/]+)\s+([A-E])\s*(.+)$/);
+
+      if (match) {
+        players.push({
+          overall: parseInt(match[1]),
+          position: match[2],
+          condition: match[3],
+          name: match[4].trim(),
+          type: label,
+          url: href.startsWith('http') ? href : `https://www.efootballhub.net${href}`
+        });
+      } else if (text.length > 2 && text.length < 60) {
+        // Fallback: just grab the name
+        players.push({
+          overall: null,
+          position: null,
+          condition: null,
+          name: text,
+          type: label,
+          url: href.startsWith('http') ? href : `https://www.efootballhub.net${href}`
+        });
       }
+    });
 
-      // Format C: "98 LWF Vinícius Júnior"  (no condition letter)
-      if (!name) {
-        m = raw.match(new RegExp(`^(\\d{2,3})\\s+(${POSITIONS})\\s+(.+)$`));
-        if (m) { overall = parseInt(m[1]); position = m[2]; name = m[3].trim(); }
-      }
-
-      // Fallback: grab first number as overall, first position token, rest as name
-      if (!name) {
-        const numMatch = raw.match(/(\d{2,3})/);
-        const posMatch = raw.match(new RegExp(`\\b(${POSITIONS})\\b`));
-        if (numMatch && posMatch) {
-          overall = parseInt(numMatch[1]);
-          position = posMatch[1];
-          name = raw.replace(numMatch[0], '').replace(posMatch[0], '').replace(/\b[A-E]\b/, '').trim();
-        } else if (raw.length > 2) {
-          name = raw;
-        }
-      }
-
-      if (name && name.length > 1 && !seen.has(name)) {
-        seen.add(name);
-        players.push({ name, overall, position, type: label });
-      }
+    // Dedupe by name
+    const seen = new Set();
+    return players.filter(p => {
+      if (seen.has(p.name)) return false;
+      seen.add(p.name);
+      return true;
     });
 
   } catch (err) {
-    console.error(`  ERROR: ${err.message}`);
+    console.error(`Failed to scrape ${label}:`, err.message);
+    return [];
   }
-
-  const withOvr = players.filter(p => p.overall).length;
-  console.log(`  → ${players.length} players (${withOvr} with overall)`);
-  return players;
-}
-
-function generateTierList(players) {
-  const withOverall = players.filter(p => p.overall && p.overall >= 80);
-  console.log(`\nTier list from ${withOverall.length} rated players`);
-
-  // Score: overall + card type bonus
-  const scored = withOverall.map(p => ({
-    ...p,
-    score: p.overall + (p.type==='epic'?3 : p.type==='legend'?2 : p.type==='featured'?1 : 0)
-  }));
-
-  // Dedupe by name, keep highest score
-  const byName = {};
-  scored.forEach(p => { if (!byName[p.name] || p.score > byName[p.name].score) byName[p.name] = p; });
-  const unique = Object.values(byName).sort((a,b) => b.score - a.score);
-
-  // Dynamic thresholds based on actual score distribution
-  const scores = unique.map(p => p.score);
-  const max = scores[0] || 100;
-  const min = scores[scores.length-1] || 80;
-  const range = max - min;
-
-  const tiers = { S:[], A:[], B:[], C:[], D:[] };
-  unique.forEach(p => {
-    const pct = range > 0 ? (p.score - min) / range : 0.5;
-    if      (pct >= 0.80) tiers.S.push(p);
-    else if (pct >= 0.60) tiers.A.push(p);
-    else if (pct >= 0.40) tiers.B.push(p);
-    else if (pct >= 0.20) tiers.C.push(p);
-    else                  tiers.D.push(p);
-  });
-
-  Object.keys(tiers).forEach(t => { tiers[t] = tiers[t].slice(0, 10); });
-  console.log(`S=${tiers.S.length} A=${tiers.A.length} B=${tiers.B.length} C=${tiers.C.length} D=${tiers.D.length}`);
-
-  return {
-    generated_at: new Date().toISOString(),
-    method: 'stat-based',
-    note: 'Rankings based on overall rating + card type bonus (Epic +3, Legend +2, Featured +1). Data from efootballhub.net.',
-    tiers
-  };
-}
-
-async function fetchNews() {
-  console.log('\nFetching news via Jina...');
-  const articles = [];
-
-  try {
-    const res = await fetch('https://r.jina.ai/https://www.reddit.com/r/eFootball/new/', {
-      headers: { 'User-Agent': 'EFMetaBot/1.0', 'Accept': 'text/plain' }
-    });
-    const text = await res.text();
-
-    const lines = text.split('\n')
-      .map(l => l.trim())
-      .filter(l =>
-        l.length > 20 && l.length < 250 &&
-        !l.startsWith('http') && !l.startsWith('r/') &&
-        !l.startsWith('u/') && !l.startsWith('#') &&
-        !l.match(/^\d+\s*(point|comment|hour|minute|day|Posted)/) &&
-        l.match(/[a-zA-Z]{4,}/)
-      ).slice(0, 10);
-
-    lines.forEach(title => {
-      articles.push({
-        title,
-        url: 'https://www.reddit.com/r/eFootball/new/',
-        source: 'Reddit r/eFootball',
-        time: new Date().toISOString()
-      });
-    });
-    console.log(`  → ${articles.length} news items`);
-  } catch (err) {
-    console.error(`  News failed: ${err.message}`);
-  }
-
-  return { fetched_at: new Date().toISOString(), articles };
 }
 
 async function main() {
-  fs.mkdirSync(PUBLIC, { recursive: true });
-
-  const endpoints = [
-    { label: 'epic',     url: `${BASE}/search/players?epic=true&GridView=true` },
-    { label: 'featured', url: `${BASE}/search/players?agentSearch=true&GridView=true` },
-    { label: 'legend',   url: `${BASE}/search/players?legend=true&GridView=true` },
-    { label: 'new',      url: `${BASE}/search/players?newPlayers=true&GridView=true` },
-  ];
-
   const allPlayers = [];
-  for (const ep of endpoints) {
-    allPlayers.push(...await scrapePlayers(ep.label, ep.url));
+
+  for (const endpoint of ENDPOINTS) {
+    const players = await scrapePage(endpoint.label, endpoint.url);
+    console.log(`  → ${players.length} players found`);
+    allPlayers.push(...players);
   }
 
+  // Global dedupe by name, keep highest overall
   const byName = {};
-  allPlayers.forEach(p => { if (!byName[p.name] || (p.overall||0) > (byName[p.name].overall||0)) byName[p.name] = p; });
-  const finalPlayers = Object.values(byName).sort((a,b) => (b.overall||0)-(a.overall||0));
+  allPlayers.forEach(p => {
+    if (!byName[p.name] || (p.overall > (byName[p.name].overall || 0))) {
+      byName[p.name] = p;
+    }
+  });
 
-  fs.writeFileSync(path.join(PUBLIC,'players.json'), JSON.stringify({
-    scraped_at: new Date().toISOString(), count: finalPlayers.length, players: finalPlayers
-  }, null, 2));
-  console.log(`\n✓ players.json → ${finalPlayers.length} players`);
+  const final = Object.values(byName).sort((a, b) => (b.overall || 0) - (a.overall || 0));
 
-  const tier = generateTierList(finalPlayers);
-  fs.writeFileSync(path.join(PUBLIC,'tier.json'), JSON.stringify(tier, null, 2));
-  console.log(`✓ tier.json saved`);
+  const output = {
+    scraped_at: new Date().toISOString(),
+    count: final.length,
+    players: final
+  };
 
-  const news = await fetchNews();
-  fs.writeFileSync(path.join(PUBLIC,'news.json'), JSON.stringify(news, null, 2));
-  console.log(`✓ news.json → ${news.articles.length} articles`);
+  const outPath = path.join(process.cwd(), 'public', 'players.json');
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
+  fs.writeFileSync(outPath, JSON.stringify(output, null, 2));
 
-  console.log('\n✅ Done.');
+  console.log(`\n✓ Saved ${final.length} players to public/players.json`);
 }
 
-main().catch(err => { console.error('FATAL:', err); process.exit(1); });
+main();
