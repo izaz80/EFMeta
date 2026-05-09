@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-  // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -22,7 +21,11 @@ export default async function handler(req, res) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.4, maxOutputTokens: 65535 }
+          generationConfig: {
+            temperature: 0.4,
+            maxOutputTokens: 8192,
+            responseMimeType: 'application/json'   // force Gemini to return pure JSON
+          }
         })
       }
     );
@@ -33,7 +36,22 @@ export default async function handler(req, res) {
       return res.status(response.status).json({ error: data.error?.message || 'Gemini error' });
     }
 
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    let text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+
+    // Strip markdown fences just in case
+    text = text.replace(/^```[\w]*\n?/gm, '').replace(/```$/gm, '').trim();
+
+    // Extract JSON object if wrapped in extra text
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (jsonMatch) text = jsonMatch[0];
+
+    // Validate parsability on server before sending
+    try {
+      JSON.parse(text);
+    } catch {
+      return res.status(500).json({ error: 'AI returned malformed JSON. Please retry.' });
+    }
+
     return res.status(200).json({ text });
 
   } catch (err) {
