@@ -23,7 +23,7 @@ export default async function handler(req, res) {
           contents: [{ parts: [{ text: prompt }] }],
           generationConfig: {
             temperature: 0.4,
-            maxOutputTokens: 8192,
+            maxOutputTokens: 65535,
             responseMimeType: 'application/json'   // force Gemini to return pure JSON
           }
         })
