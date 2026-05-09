@@ -1,33 +1,33 @@
-name: Scrape eFootballHub Players
+name: Daily Data Refresh
 
 on:
   schedule:
-    - cron: '0 6 * * *'   # runs every day at 6am UTC
-  workflow_dispatch:        # allows manual trigger from GitHub UI
+    - cron: '0 0 * * *'   # midnight UTC every day
+  workflow_dispatch:        # manual trigger from GitHub UI
 
 jobs:
-  scrape:
+  refresh:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install node-fetch cheerio
+        run: npm install
 
       - name: Run scraper
         run: node scripts/scrape.js
 
-      - name: Commit updated player data
+      - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/players.json
-          git diff --cached --quiet || git commit -m "chore: update player data $(date -u '+%Y-%m-%d')"
+          git add public/players.json public/tier.json public/news.json
+          git diff --cached --quiet || git commit -m "data: daily refresh $(date -u '+%Y-%m-%d')"
           git push
