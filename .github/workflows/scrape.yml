@@ -2,8 +2,8 @@ name: Daily Data Refresh
 
 on:
   schedule:
-    - cron: '0 0 * * *'   # midnight UTC every day
-  workflow_dispatch:        # manual trigger from GitHub UI
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   refresh:
@@ -23,11 +23,19 @@ jobs:
 
       - name: Run scraper
         run: node scripts/scrape.js
+        continue-on-error: true
+
+      - name: Ensure JSON files exist
+        run: |
+          mkdir -p public
+          [ -f public/players.json ] || echo '{"scraped_at":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","count":0,"players":[]}' > public/players.json
+          [ -f public/tier.json ] || echo '{"generated_at":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","tiers":{"S":[],"A":[],"B":[],"C":[],"D":[]}}' > public/tier.json
+          [ -f public/news.json ] || echo '{"fetched_at":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","articles":[]}' > public/news.json
 
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/players.json public/tier.json public/news.json
-          git diff --cached --quiet || git commit -m "data: daily refresh $(date -u '+%Y-%m-%d')"
-          git push
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "data: daily refresh $(date -u '+%Y-%m-%d')"
+          git push || echo "Nothing to push"
