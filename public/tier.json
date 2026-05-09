@@ -1,0 +1,318 @@
+{
+  "generated_at": "2026-05-09T20:55:34.739Z",
+  "method": "stat-based",
+  "note": "Rankings based on overall rating + card type bonus (Epic +3, Legend +2, Featured +1). Data from efootballhub.net.",
+  "tiers": {
+    "S": [
+      {
+        "name": "Vinícius Júnior",
+        "overall": 98,
+        "position": "LWF",
+        "type": "featured",
+        "score": 99
+      },
+      {
+        "name": "Jude Bellingham",
+        "overall": 98,
+        "position": "AMF",
+        "type": "featured",
+        "score": 99
+      },
+      {
+        "name": "Kylian Mbappé",
+        "overall": 97,
+        "position": "CF",
+        "type": "featured",
+        "score": 98
+      },
+      {
+        "name": "Kevin De Bruyne",
+        "overall": 97,
+        "position": "AMF",
+        "type": "featured",
+        "score": 98
+      },
+      {
+        "name": "Erling Haaland",
+        "overall": 97,
+        "position": "CF",
+        "type": "featured",
+        "score": 98
+      },
+      {
+        "name": "Jamal Musiala",
+        "overall": 97,
+        "position": "AMF",
+        "type": "featured",
+        "score": 98
+      },
+      {
+        "name": "Lamine Yamal",
+        "overall": 97,
+        "position": "RWF",
+        "type": "featured",
+        "score": 98
+      },
+      {
+        "name": "Cole Palmer",
+        "overall": 97,
+        "position": "AMF",
+        "type": "featured",
+        "score": 98
+      },
+      {
+        "name": "Robert Lewandowski",
+        "overall": 97,
+        "position": "CF",
+        "type": "featured",
+        "score": 98
+      },
+      {
+        "name": "Lionel Messi",
+        "overall": 97,
+        "position": "RWF",
+        "type": "featured",
+        "score": 98
+      }
+    ],
+    "A": [
+      {
+        "name": "104   Lionel Messi",
+        "overall": 94,
+        "position": "RWF",
+        "type": "legend",
+        "score": 96
+      },
+      {
+        "name": "102   Lionel Messi",
+        "overall": 93,
+        "position": "RWF",
+        "type": "legend",
+        "score": 95
+      },
+      {
+        "name": "102   Johan Cruyff",
+        "overall": 93,
+        "position": "SS",
+        "type": "legend",
+        "score": 95
+      },
+      {
+        "name": "102   Neymar Jr",
+        "overall": 92,
+        "position": "LWF",
+        "type": "legend",
+        "score": 94
+      },
+      {
+        "name": "101   Johan Cruyff",
+        "overall": 92,
+        "position": "SS",
+        "type": "legend",
+        "score": 94
+      },
+      {
+        "name": "101   Zico",
+        "overall": 92,
+        "position": "AMF",
+        "type": "legend",
+        "score": 94
+      }
+    ],
+    "B": [
+      {
+        "name": "101   Iker Casillas",
+        "overall": 91,
+        "position": "GK",
+        "type": "legend",
+        "score": 93
+      },
+      {
+        "name": "99   Zico",
+        "overall": 91,
+        "position": "AMF",
+        "type": "legend",
+        "score": 93
+      },
+      {
+        "name": "101   Andrés Iniesta",
+        "overall": 91,
+        "position": "CMF",
+        "type": "legend",
+        "score": 93
+      },
+      {
+        "name": "100   Cristiano Ronaldo",
+        "overall": 91,
+        "position": "CF",
+        "type": "legend",
+        "score": 93
+      },
+      {
+        "name": "100   Neymar Jr",
+        "overall": 91,
+        "position": "LWF",
+        "type": "legend",
+        "score": 93
+      },
+      {
+        "name": "100   Franz Beckenbauer",
+        "overall": 91,
+        "position": "CB",
+        "type": "legend",
+        "score": 93
+      },
+      {
+        "name": "101   Ronaldinho Gaúcho",
+        "overall": 91,
+        "position": "AMF",
+        "type": "legend",
+        "score": 93
+      },
+      {
+        "name": "100   Romário",
+        "overall": 91,
+        "position": "CF",
+        "type": "legend",
+        "score": 93
+      },
+      {
+        "name": "100   K. Heinz Rummenigge",
+        "overall": 90,
+        "position": "SS",
+        "type": "legend",
+        "score": 92
+      },
+      {
+        "name": "99   Fabio Cannavaro",
+        "overall": 90,
+        "position": "CB",
+        "type": "legend",
+        "score": 92
+      }
+    ],
+    "C": [
+      {
+        "name": "104   Michel Platini",
+        "overall": 87,
+        "position": "AMF",
+        "type": "epic",
+        "score": 90
+      },
+      {
+        "name": "105   Franco Baresi",
+        "overall": 87,
+        "position": "CB",
+        "type": "epic",
+        "score": 90
+      },
+      {
+        "name": "105   Franz Beckenbauer",
+        "overall": 87,
+        "position": "CB",
+        "type": "epic",
+        "score": 90
+      },
+      {
+        "name": "104   Andrea Pirlo",
+        "overall": 87,
+        "position": "DMF",
+        "type": "epic",
+        "score": 90
+      },
+      {
+        "name": "104   Roberto Carlos",
+        "overall": 87,
+        "position": "LB",
+        "type": "epic",
+        "score": 90
+      },
+      {
+        "name": "104   Patrick Vieira",
+        "overall": 87,
+        "position": "DMF",
+        "type": "epic",
+        "score": 90
+      },
+      {
+        "name": "104   Ousmane Dembélé",
+        "overall": 87,
+        "position": "CF",
+        "type": "epic",
+        "score": 90
+      },
+      {
+        "name": "104   Andriy Shevchenko",
+        "overall": 87,
+        "position": "CF",
+        "type": "epic",
+        "score": 90
+      },
+      {
+        "name": "104   Ruud Gullit",
+        "overall": 87,
+        "position": "AMF",
+        "type": "epic",
+        "score": 90
+      },
+      {
+        "name": "100   Lothar Matthäus",
+        "overall": 87,
+        "position": "CMF",
+        "type": "epic",
+        "score": 90
+      }
+    ],
+    "D": [
+      {
+        "name": "87   Michel Platini",
+        "overall": 87,
+        "position": "AMF",
+        "type": "new",
+        "score": 87
+      },
+      {
+        "name": "99   Julián Alvarez",
+        "overall": 86,
+        "position": "CF",
+        "type": "new",
+        "score": 86
+      },
+      {
+        "name": "99   Enzo Fernández",
+        "overall": 86,
+        "position": "CMF",
+        "type": "new",
+        "score": 86
+      },
+      {
+        "name": "85   Roberto Donadoni",
+        "overall": 85,
+        "position": "CMF",
+        "type": "new",
+        "score": 85
+      },
+      {
+        "name": "85   Demetrio Albertini",
+        "overall": 85,
+        "position": "DMF",
+        "type": "new",
+        "score": 85
+      },
+      {
+        "name": "97   Alexis Mac Allister",
+        "overall": 84,
+        "position": "CMF",
+        "type": "new",
+        "score": 84
+      },
+      {
+        "name": "97   Dani Olmo",
+        "overall": 84,
+        "position": "AMF",
+        "type": "new",
+        "score": 84
+      }
+    ]
+  }
+}
