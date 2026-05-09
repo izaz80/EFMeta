@@ -642,16 +642,37 @@
     btn.disabled = true;
     btn.innerHTML = '<span class="spin"></span><span>Analyzing meta...</span>';
 
-    const prompt = `You are an expert eFootball analyst. Generate a meta tier list for eFootball patch v5.3.0 (March 2026).
+    const playerContext = buildPlayerContext();
 
-Return a JSON object with this exact structure:
-{"patch":"v5.3.0","updated":"May 2026","tiers":{"S":[{"name":"Mbappe","pos":"CF","type":"Epic","reason":"Pace and finishing unmatched"}],"A":[{"name":"Vinicius Jr","pos":"LWF","type":"Epic","reason":"Dribbling breaks any defense"}],"B":[{"name":"Pedri","pos":"CMF","type":"Featured","reason":"Best box to box this patch"}],"C":[{"name":"Benzema","pos":"CF","type":"Legend","reason":"Outpaced by new CF meta"}],"D":[{"name":"Modric","pos":"CMF","type":"Legend","reason":"Low physical for current meta"}]}}
+    const prompt = `You are an expert eFootball analyst. Generate a meta tier list for eFootball patch v5.3.0 (March 2026).${playerContext}
 
-Now generate the full tier list following that structure. Include 5 players per tier covering all positions (GK CB LB RB DMF CMF AMF LWF RWF SS CF). Use real current eFootball Epic and Legend player names. Keep reasons under 8 words.`;
+Return ONLY a valid JSON object. No markdown, no backticks, no explanation. Raw JSON only.
+
+Format:
+{
+  "patch": "v5.3.0",
+  "updated": "May 2026",
+  "tiers": {
+    "S": [{"name": "Player Name", "pos": "CF", "type": "Epic", "reason": "Short reason under 10 words"}],
+    "A": [...],
+    "B": [...],
+    "C": [...],
+    "D": [...]
+  }
+}
+
+Rules:
+- 4-7 players per tier
+- Cover all positions: GK, CB, LB, RB, DMF, CMF, AMF, LWF, RWF, SS, CF
+- Mix of Epic, Legend, Featured, and obtainable players
+- Base rankings on: max level stats, playing style synergy, patch AI behavior, skill combos
+- S tier = game-breaking. D tier = actively avoid.
+- Reason under 10 words. Use real eFootball player names.`;
 
     try {
       const raw = await callAI(prompt);
-      tierData = JSON.parse(raw);
+      const clean = raw.replace(/```json|```/g, '').trim();
+      tierData = JSON.parse(clean);
       renderTierList(tierData, currentPos);
     } catch(e) {
       output.innerHTML = `<div class="error-box">Error: ${e.message}</div>
