@@ -50,7 +50,7 @@ async function fetchCategory({ label, playerType }) {
 
 // ─── FETCH "NEW" PLAYERS ──────────────────────────────────────────────────────
 async function fetchNew() {
-  const url = `${BASE}?sort=newest&limit=50`;
+  const url = `https://efhub.com/`;
   console.log(`\nFetching [new]: ${url}`);
   try {
     const res = await fetch(url, {
