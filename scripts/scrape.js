@@ -1,71 +1,93 @@
 import fetch from 'node-fetch';
-import * as cheerio from 'cheerio';
 import fs from 'fs';
 import path from 'path';
 
-const BASE = 'https://efhub.com/';
 const PUBLIC = path.join(process.cwd(), 'public');
 
-async function scrapePlayers(label, url) {
-  console.log(`\nScraping [${label}]: ${url}`);
+// Jina renders JS-heavy pages and bypasses 403s
+const JINA = 'https://r.jina.ai/';
+
+const POSITIONS = ['GK','CB','LB','RB','LMF','RMF','DMF','CMF','AMF','LWF','RWF','SS','CF','ST'];
+const POS_RE = new RegExp(`\\b(${POSITIONS.join('|')})\\b`);
+
+// ─── FETCH VIA JINA ──────────────────────────────────────────────────────────
+async function fetchViaJina(url, label) {
+  console.log(`\nFetching [${label}]: ${url}`);
+  const jinaUrl = `${JINA}${url}`;
+  const res = await fetch(jinaUrl, {
+    headers: {
+      'User-Agent': 'EFMetaBot/2.0',
+      'Accept': 'text/plain',
+      'X-Return-Format': 'text',
+    },
+    timeout: 30000,
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status} from Jina for ${url}`);
+  return res.text();
+}
+
+// ─── PARSE PLAYERS FROM JINA TEXT ────────────────────────────────────────────
+// efhub.com text lines look like:
+//   "86 · 99 · CMF A · Enzo Fernández"   (baseOvr · maxOvr · POS COND · Name)
+//   "96 · CMF A · Pedri"                  (maxOvr · POS COND · Name)
+//   "95 · CB A · Nico Schlotterbeck"
+function parsePlayers(text, label) {
   const players = [];
   const seen = new Set();
+  const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
 
-  try {
-    const res = await fetch(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml',
-      }
-    });
+  for (const line of lines) {
+    // Normalise bullet separators
+    const raw = line.replace(/·/g, '|').replace(/\s*\|\s*/g, ' | ');
 
-    const html = await res.text();
-    const $ = cheerio.load(html);
-    const POSITIONS = 'GK|CB|LB|RB|DMF|CMF|AMF|LWF|RWF|SS|CF|ST';
+    let name = null, overall = null, position = null;
 
-    $('a[href*="/player/"]').each((_, el) => {
-      const raw = $(el).text().trim().replace(/\s+/g, ' ');
-      if (!raw || raw.length < 3 || raw.length > 80 || seen.has(raw)) return;
+    // Format A: "86 | 99 | CMF A | Enzo Fernández"  (base | max | pos cond | name)
+    let m = raw.match(/^(\d{2,3})\s*\|\s*(\d{2,3})\s*\|\s*([A-Z]{2,3})\s+[A-E]\s*\|\s*(.+)$/);
+    if (m) {
+      overall  = parseInt(m[2]);   // max overall is what matters
+      position = m[3];
+      name     = m[4].trim();
+    }
 
-      let name = null, overall = null, position = null;
-
-      // Format A: "89 106 SS B Pelé"  (two nums, pos, condition, name) — Epic/Legend
-      let m = raw.match(new RegExp(`^(\\d{2,3})\\s+\\d{2,3}\\s+(${POSITIONS})\\s+[A-E]\\s+(.+)$`));
+    // Format B: "96 | CMF A | Pedri"  (max | pos cond | name)
+    if (!name) {
+      m = raw.match(/^(\d{2,3})\s*\|\s*([A-Z]{2,3})\s+[A-E]\s*\|\s*(.+)$/);
       if (m) { overall = parseInt(m[1]); position = m[2]; name = m[3].trim(); }
+    }
 
-      // Format B: "98 LWF B Vinícius Júnior"  (one num, pos, condition, name) — Featured
-      if (!name) {
-        m = raw.match(new RegExp(`^(\\d{2,3})\\s+(${POSITIONS})\\s+[A-E]\\s+(.+)$`));
-        if (m) { overall = parseInt(m[1]); position = m[2]; name = m[3].trim(); }
+    // Format C: "96 | CMF | Pedri"  (no condition letter)
+    if (!name) {
+      m = raw.match(/^(\d{2,3})\s*\|\s*([A-Z]{2,3})\s*\|\s*(.+)$/);
+      if (m && POSITIONS.includes(m[2])) {
+        overall = parseInt(m[1]); position = m[2]; name = m[3].trim();
       }
+    }
 
-      // Format C: "98 LWF Vinícius Júnior"  (no condition letter)
-      if (!name) {
-        m = raw.match(new RegExp(`^(\\d{2,3})\\s+(${POSITIONS})\\s+(.+)$`));
-        if (m) { overall = parseInt(m[1]); position = m[2]; name = m[3].trim(); }
+    // Fallback: grab first number + first known position + rest as name
+    if (!name) {
+      const numMatch = raw.match(/(\d{2,3})/);
+      const posMatch = raw.match(POS_RE);
+      if (numMatch && posMatch) {
+        overall  = parseInt(numMatch[1]);
+        position = posMatch[1];
+        // Strip numbers, position, condition letter
+        name = raw
+          .replace(/\d{2,3}/g, '')
+          .replace(POS_RE, '')
+          .replace(/\b[A-E]\b/g, '')
+          .replace(/\|/g, '')
+          .trim()
+          .replace(/\s+/g, ' ');
       }
+    }
 
-      // Fallback: grab first number as overall, first position token, rest as name
-      if (!name) {
-        const numMatch = raw.match(/(\d{2,3})/);
-        const posMatch = raw.match(new RegExp(`\\b(${POSITIONS})\\b`));
-        if (numMatch && posMatch) {
-          overall = parseInt(numMatch[1]);
-          position = posMatch[1];
-          name = raw.replace(numMatch[0], '').replace(posMatch[0], '').replace(/\b[A-E]\b/, '').trim();
-        } else if (raw.length > 2) {
-          name = raw;
-        }
-      }
+    if (!name || name.length < 2 || name.length > 60) continue;
+    if (!position || !POSITIONS.includes(position))    continue;
+    if (seen.has(name)) continue;
 
-      if (name && name.length > 1 && !seen.has(name)) {
-        seen.add(name);
-        players.push({ name, overall, position, type: label });
-      }
-    });
-
-  } catch (err) {
-    console.error(`  ERROR: ${err.message}`);
+    seen.add(name);
+    players.push({ name, overall, position, type: label });
   }
 
   const withOvr = players.filter(p => p.overall).length;
@@ -73,30 +95,46 @@ async function scrapePlayers(label, url) {
   return players;
 }
 
+// ─── SCRAPE ONE CATEGORY ──────────────────────────────────────────────────────
+async function scrapeCategory(label, url) {
+  try {
+    const text = await fetchViaJina(url, label);
+    return parsePlayers(text, label);
+  } catch (err) {
+    console.error(`  ERROR [${label}]: ${err.message}`);
+    return [];
+  }
+}
+
+// ─── TIER LIST ────────────────────────────────────────────────────────────────
 function generateTierList(players) {
   const withOverall = players.filter(p => p.overall && p.overall >= 80);
-  console.log(`\nTier list from ${withOverall.length} rated players`);
+  console.log(`\nBuilding tier list from ${withOverall.length} rated players`);
 
-  // Score: overall + card type bonus
+  // Card type bonus so Epic > Featured > regular at same overall
+  const TYPE_BONUS = { epic: 4, bigtime: 3, showtime: 3, legend: 2, featured: 1, new: 0 };
+
   const scored = withOverall.map(p => ({
     ...p,
-    score: p.overall + (p.type==='epic'?3 : p.type==='legend'?2 : p.type==='featured'?1 : 0)
+    score: p.overall + (TYPE_BONUS[p.type] ?? 0),
   }));
 
   // Dedupe by name, keep highest score
   const byName = {};
-  scored.forEach(p => { if (!byName[p.name] || p.score > byName[p.name].score) byName[p.name] = p; });
-  const unique = Object.values(byName).sort((a,b) => b.score - a.score);
+  scored.forEach(p => {
+    if (!byName[p.name] || p.score > byName[p.name].score) byName[p.name] = p;
+  });
+  const unique = Object.values(byName).sort((a, b) => b.score - a.score);
 
-  // Dynamic thresholds based on actual score distribution
+  // Dynamic thresholds
   const scores = unique.map(p => p.score);
-  const max = scores[0] || 100;
-  const min = scores[scores.length-1] || 80;
-  const range = max - min;
+  const max = scores[0]  || 100;
+  const min = scores[scores.length - 1] || 80;
+  const range = max - min || 1;
 
-  const tiers = { S:[], A:[], B:[], C:[], D:[] };
+  const tiers = { S: [], A: [], B: [], C: [], D: [] };
   unique.forEach(p => {
-    const pct = range > 0 ? (p.score - min) / range : 0.5;
+    const pct = (p.score - min) / range;
     if      (pct >= 0.80) tiers.S.push(p);
     else if (pct >= 0.60) tiers.A.push(p);
     else if (pct >= 0.40) tiers.B.push(p);
@@ -104,86 +142,78 @@ function generateTierList(players) {
     else                  tiers.D.push(p);
   });
 
-  Object.keys(tiers).forEach(t => { tiers[t] = tiers[t].slice(0, 10); });
+  // Cap each tier at 15 players
+  Object.keys(tiers).forEach(t => { tiers[t] = tiers[t].slice(0, 15); });
   console.log(`S=${tiers.S.length} A=${tiers.A.length} B=${tiers.B.length} C=${tiers.C.length} D=${tiers.D.length}`);
 
   return {
     generated_at: new Date().toISOString(),
     method: 'stat-based',
-    note: 'Rankings based on overall rating + card type bonus (Epic +3, Legend +2, Featured +1). Data from efootballhub.net.',
-    tiers
+    note: 'Rankings use max overall + card type bonus (Epic/BigTime +4/3, Legend +2, Featured +1). Data from efhub.com.',
+    tiers,
   };
 }
 
-async function fetchNews() {
-  console.log('\nFetching news via Jina...');
-  const articles = [];
-
-  try {
-    const res = await fetch('https://r.jina.ai/https://www.reddit.com/r/eFootball/new/', {
-      headers: { 'User-Agent': 'EFMetaBot/1.0', 'Accept': 'text/plain' }
-    });
-    const text = await res.text();
-
-    const lines = text.split('\n')
-      .map(l => l.trim())
-      .filter(l =>
-        l.length > 20 && l.length < 250 &&
-        !l.startsWith('http') && !l.startsWith('r/') &&
-        !l.startsWith('u/') && !l.startsWith('#') &&
-        !l.match(/^\d+\s*(point|comment|hour|minute|day|Posted)/) &&
-        l.match(/[a-zA-Z]{4,}/)
-      ).slice(0, 10);
-
-    lines.forEach(title => {
-      articles.push({
-        title,
-        url: 'https://www.reddit.com/r/eFootball/new/',
-        source: 'Reddit r/eFootball',
-        time: new Date().toISOString()
-      });
-    });
-    console.log(`  → ${articles.length} news items`);
-  } catch (err) {
-    console.error(`  News failed: ${err.message}`);
-  }
-
-  return { fetched_at: new Date().toISOString(), articles };
-}
-
+// ─── MAIN ─────────────────────────────────────────────────────────────────────
 async function main() {
   fs.mkdirSync(PUBLIC, { recursive: true });
 
+  // efhub.com URL patterns (adjust if the site restructures)
   const endpoints = [
-    { label: 'epic',     url: `${BASE}/search/players?epic=true&GridView=true` },
-    { label: 'featured', url: `${BASE}/search/players?agentSearch=true&GridView=true` },
-    { label: 'legend',   url: `${BASE}/search/players?legend=true&GridView=true` },
-    { label: 'new',      url: `${BASE}/search/players?newPlayers=true&GridView=true` },
+    { label: 'epic',     url: 'https://efhub.com/players?type=epic' },
+    { label: 'bigtime',  url: 'https://efhub.com/players?type=bigtime' },
+    { label: 'showtime', url: 'https://efhub.com/players?type=showtime' },
+    { label: 'featured', url: 'https://efhub.com/players?type=featured' },
+    { label: 'new',      url: 'https://efhub.com/players?sort=newest' },
   ];
 
   const allPlayers = [];
   for (const ep of endpoints) {
-    allPlayers.push(...await scrapePlayers(ep.label, ep.url));
+    const batch = await scrapeCategory(ep.label, ep.url);
+    allPlayers.push(...batch);
   }
 
-  const byName = {};
-  allPlayers.forEach(p => { if (!byName[p.name] || (p.overall||0) > (byName[p.name].overall||0)) byName[p.name] = p; });
-  const finalPlayers = Object.values(byName).sort((a,b) => (b.overall||0)-(a.overall||0));
+  if (allPlayers.length === 0) {
+    // If efhub.com query params don't work, fall back to the main players page
+    console.log('\nNo players found from filtered URLs — trying main players page…');
+    try {
+      const text = await fetchViaJina('https://efhub.com/players', 'all');
+      allPlayers.push(...parsePlayers(text, 'featured'));
+    } catch (err) {
+      console.error('  Fallback failed:', err.message);
+    }
+  }
 
-  fs.writeFileSync(path.join(PUBLIC,'players.json'), JSON.stringify({
-    scraped_at: new Date().toISOString(), count: finalPlayers.length, players: finalPlayers
-  }, null, 2));
+  // Dedupe across categories — keep highest overall per player name
+  const byName = {};
+  allPlayers.forEach(p => {
+    if (!byName[p.name] || (p.overall || 0) > (byName[p.name].overall || 0)) {
+      byName[p.name] = p;
+    }
+  });
+  const finalPlayers = Object.values(byName).sort((a, b) => (b.overall || 0) - (a.overall || 0));
+
+  if (finalPlayers.length === 0) {
+    console.error('\n❌ No players scraped. Check Jina access or efhub.com URL structure.');
+    process.exit(1);   // Fail loudly so GitHub Actions shows a red X
+  }
+
+  // Write players.json
+  fs.writeFileSync(
+    path.join(PUBLIC, 'players.json'),
+    JSON.stringify({ scraped_at: new Date().toISOString(), count: finalPlayers.length, players: finalPlayers }, null, 2)
+  );
   console.log(`\n✓ players.json → ${finalPlayers.length} players`);
 
+  // Write tier.json
   const tier = generateTierList(finalPlayers);
-  fs.writeFileSync(path.join(PUBLIC,'tier.json'), JSON.stringify(tier, null, 2));
-  console.log(`✓ tier.json saved`);
-
-  const news = await fetchNews();
-  fs.writeFileSync(path.join(PUBLIC,'news.json'), JSON.stringify(news, null, 2));
-  console.log(`✓ news.json → ${news.articles.length} articles`);
+  fs.writeFileSync(path.join(PUBLIC, 'tier.json'), JSON.stringify(tier, null, 2));
+  console.log('✓ tier.json saved');
 
   console.log('\n✅ Done.');
 }
 
-main().catch(err => { console.error('FATAL:', err); process.exit(1); });
+main().catch(err => {
+  console.error('FATAL:', err);
+  process.exit(1);
+});
