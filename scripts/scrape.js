@@ -3,7 +3,7 @@ import * as cheerio from 'cheerio';
 import fs from 'fs';
 import path from 'path';
 
-const BASE = 'https://www.efootballhub.net/efootball23';
+const BASE = 'https://efhub.com/';
 const PUBLIC = path.join(process.cwd(), 'public');
 
 async function scrapePlayers(label, url) {
