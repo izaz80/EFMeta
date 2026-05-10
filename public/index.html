@@ -4,149 +4,216 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>eFMeta — eFootball Meta Tier List & Latest Cards</title>
-  <meta name="description" content="Daily updated eFootball tier list, latest card drops, and patch news. Free, no ads."/>
+  <meta name="description" content="Daily updated eFootball tier list and latest card drops. Free, no ads."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #080a0f;
-      --surface: #0e1118;
+      --bg:       #080a0f;
+      --surface:  #0e1118;
       --surface2: #151a24;
-      --border: #1e2535;
-      --accent: #00e5ff;
-      --accent2: #ff3d57;
-      --gold: #ffd447;
-      --text: #e8eaf0;
-      --muted: #5a6480;
-      --s: #1db954;
-      --a: #00b4d8;
-      --b: #7b68ee;
-      --c: #f5a623;
-      --d: #ff4757;
+      --border:   #1e2535;
+      --accent:   #00e5ff;
+      --accent2:  #ff3d57;
+      --gold:     #ffd447;
+      --text:     #e8eaf0;
+      --muted:    #5a6480;
+      --s: #1db954; --a: #00b4d8; --b: #7b68ee; --c: #f5a623; --d: #ff4757;
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { background:var(--bg); color:var(--text); font-family:'Barlow',sans-serif; min-height:100vh; overflow-x:hidden; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Barlow', sans-serif; min-height: 100vh; overflow-x: hidden;
+    }
+
+    /* Ambient glow + grid */
     body::before {
-      content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
-      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,229,255,0.07) 0%, transparent 60%),
-                  radial-gradient(ellipse 40% 30% at 90% 80%, rgba(255,61,87,0.05) 0%, transparent 50%);
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,229,255,.07) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 90% 80%, rgba(255,61,87,.05) 0%, transparent 50%);
     }
     body::after {
-      content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
-      background-image: linear-gradient(rgba(0,229,255,0.03) 1px,transparent 1px), linear-gradient(90deg,rgba(0,229,255,0.03) 1px,transparent 1px);
-      background-size:40px 40px;
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        linear-gradient(rgba(0,229,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,255,.03) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
-    .container { max-width:1100px; margin:0 auto; padding:0 24px; position:relative; z-index:1; }
 
-    /* HEADER */
-    header { border-bottom:1px solid var(--border); padding:18px 0; position:sticky; top:0; background:rgba(8,10,15,0.93); backdrop-filter:blur(12px); z-index:100; }
-    .header-inner { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
-    .logo { display:flex; align-items:baseline; gap:8px; }
-    .logo-main { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:3px; color:var(--accent); text-shadow:0 0 20px rgba(0,229,255,0.4); }
-    .logo-sub { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:2px; }
-    .header-right { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-    .patch-badge { font-family:'DM Mono',monospace; font-size:11px; color:var(--gold); background:rgba(255,212,71,0.1); border:1px solid rgba(255,212,71,0.3); padding:4px 10px; border-radius:2px; letter-spacing:1px; }
-    .updated-tag { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
-    /* NAV */
-    nav { display:flex; gap:4px; flex-wrap:wrap; padding:12px 0 0; }
-    .nav-btn { font-family:'DM Mono',monospace; font-size:11px; padding:6px 14px; background:transparent; border:1px solid var(--border); color:var(--muted); cursor:pointer; letter-spacing:1px; transition:all 0.15s; }
-    .nav-btn:hover, .nav-btn.active { border-color:var(--accent); color:var(--accent); }
+    /* ── HEADER ── */
+    header {
+      border-bottom: 1px solid var(--border); padding: 18px 0;
+      position: sticky; top: 0;
+      background: rgba(8,10,15,.93); backdrop-filter: blur(12px); z-index: 100;
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .logo { display: flex; align-items: baseline; gap: 8px; }
+    .logo-main {
+      font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 3px;
+      color: var(--accent); text-shadow: 0 0 20px rgba(0,229,255,.4);
+    }
+    .logo-sub { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 2px; }
+    .header-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .patch-badge {
+      font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold);
+      background: rgba(255,212,71,.1); border: 1px solid rgba(255,212,71,.3);
+      padding: 4px 10px; border-radius: 2px; letter-spacing: 1px;
+    }
+    .updated-tag { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); }
 
-    /* HERO */
-    .hero { padding:64px 0 48px; text-align:center; }
-    .hero-eyebrow { font-family:'DM Mono',monospace; font-size:11px; color:var(--accent); letter-spacing:4px; text-transform:uppercase; margin-bottom:18px; opacity:0; animation:fadeUp 0.6s ease forwards 0.1s; }
-    .hero-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(48px,8vw,88px); line-height:0.95; letter-spacing:2px; margin-bottom:20px; opacity:0; animation:fadeUp 0.6s ease forwards 0.2s; }
-    .hero-title .c { color:var(--accent); text-shadow:0 0 40px rgba(0,229,255,0.5); }
-    .hero-title .r { color:var(--accent2); text-shadow:0 0 40px rgba(255,61,87,0.4); }
-    .hero-desc { font-size:15px; color:var(--muted); max-width:480px; margin:0 auto; line-height:1.7; opacity:0; animation:fadeUp 0.6s ease forwards 0.3s; }
+    /* ── NAV ── */
+    nav { display: flex; gap: 4px; flex-wrap: wrap; padding: 12px 0 0; }
+    .nav-btn {
+      font-family: 'DM Mono', monospace; font-size: 11px; padding: 6px 14px;
+      background: transparent; border: 1px solid var(--border); color: var(--muted);
+      cursor: pointer; letter-spacing: 1px; transition: all .15s;
+    }
+    .nav-btn:hover, .nav-btn.active { border-color: var(--accent); color: var(--accent); }
 
-    /* STATS BAR */
-    .stats-bar { display:flex; gap:24px; flex-wrap:wrap; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--accent); padding:16px 20px; margin:40px 0; }
-    .stat-item { display:flex; flex-direction:column; gap:2px; }
-    .stat-val { font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--accent); line-height:1; }
-    .stat-label { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:1px; }
+    /* ── HERO ── */
+    .hero { padding: 64px 0 48px; text-align: center; }
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent);
+      letter-spacing: 4px; text-transform: uppercase; margin-bottom: 18px;
+      opacity: 0; animation: fadeUp .6s ease forwards .1s;
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 8vw, 88px);
+      line-height: .95; letter-spacing: 2px; margin-bottom: 20px;
+      opacity: 0; animation: fadeUp .6s ease forwards .2s;
+    }
+    .hero-title .c { color: var(--accent); text-shadow: 0 0 40px rgba(0,229,255,.5); }
+    .hero-title .r { color: var(--accent2); text-shadow: 0 0 40px rgba(255,61,87,.4); }
+    .hero-desc {
+      font-size: 15px; color: var(--muted); max-width: 480px; margin: 0 auto;
+      line-height: 1.7; opacity: 0; animation: fadeUp .6s ease forwards .3s;
+    }
 
-    /* SECTION */
-    .section { margin-bottom:72px; }
-    .section-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:28px; padding-bottom:14px; border-bottom:1px solid var(--border); flex-wrap:wrap; gap:12px; }
-    .section-title { font-family:'Bebas Neue',sans-serif; font-size:38px; letter-spacing:2px; line-height:1; }
-    .section-title span { color:var(--accent); }
-    .section-meta { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:1px; }
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: flex; gap: 24px; flex-wrap: wrap;
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent); padding: 16px 20px; margin: 40px 0;
+    }
+    .stat-item { display: flex; flex-direction: column; gap: 2px; }
+    .stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--accent); line-height: 1; }
+    .stat-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 1px; }
 
-    /* POSITION TABS */
-    .pos-tabs { display:flex; gap:4px; flex-wrap:wrap; margin-bottom:24px; }
-    .pos-tab { font-family:'DM Mono',monospace; font-size:11px; padding:5px 12px; background:var(--surface); border:1px solid var(--border); color:var(--muted); cursor:pointer; letter-spacing:1px; transition:all 0.15s; }
-    .pos-tab:hover { color:var(--text); border-color:var(--muted); }
-    .pos-tab.active { background:var(--accent); color:var(--bg); border-color:var(--accent); font-weight:500; }
+    /* ── SECTION ── */
+    .section { margin-bottom: 72px; }
+    .section-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 28px; padding-bottom: 14px; border-bottom: 1px solid var(--border);
+      flex-wrap: wrap; gap: 12px;
+    }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 2px; line-height: 1; }
+    .section-title span { color: var(--accent); }
+    .section-meta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 1px; }
 
-    /* TIER LIST */
-    .tier-list { display:flex; flex-direction:column; gap:4px; }
-    .tier-row { display:flex; align-items:stretch; gap:4px; min-height:72px; }
-    .tier-label { width:52px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:30px; }
-    .tier-s .tier-label { background:rgba(29,185,84,0.15); color:var(--s); border-left:3px solid var(--s); }
-    .tier-a .tier-label { background:rgba(0,180,216,0.15); color:var(--a); border-left:3px solid var(--a); }
-    .tier-b .tier-label { background:rgba(123,104,238,0.15); color:var(--b); border-left:3px solid var(--b); }
-    .tier-c .tier-label { background:rgba(245,166,35,0.15); color:var(--c); border-left:3px solid var(--c); }
-    .tier-d .tier-label { background:rgba(255,71,87,0.15); color:var(--d); border-left:3px solid var(--d); }
-    .tier-cards { flex:1; background:var(--surface); border:1px solid var(--border); padding:10px 14px; display:flex; flex-wrap:wrap; gap:8px; align-content:center; }
-    .player-chip { background:var(--surface2); border:1px solid var(--border); padding:6px 10px; display:flex; flex-direction:column; gap:2px; transition:all 0.15s; position:relative; }
-    .player-chip:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,229,255,0.1); }
-    .chip-name { font-size:13px; font-weight:700; white-space:nowrap; }
-    .chip-meta { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); white-space:nowrap; }
-    .chip-pos { font-family:'DM Mono',monospace; font-size:9px; padding:1px 4px; background:var(--border); color:var(--muted); position:absolute; top:3px; right:3px; }
-    .chip-ovr { font-family:'DM Mono',monospace; font-size:9px; color:var(--gold); }
-    .tier-note { margin-top:12px; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); background:var(--surface); border:1px solid var(--border); padding:10px 14px; line-height:1.6; }
+    /* ── POSITION TABS ── */
+    .pos-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 24px; }
+    .pos-tab {
+      font-family: 'DM Mono', monospace; font-size: 11px; padding: 5px 12px;
+      background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+      cursor: pointer; letter-spacing: 1px; transition: all .15s;
+    }
+    .pos-tab:hover { color: var(--text); border-color: var(--muted); }
+    .pos-tab.active { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 500; }
 
-    /* CARD GALLERY */
-    .gallery-filters { display:flex; gap:4px; flex-wrap:wrap; margin-bottom:20px; }
-    .filter-btn { font-family:'DM Mono',monospace; font-size:11px; padding:5px 12px; background:var(--surface); border:1px solid var(--border); color:var(--muted); cursor:pointer; letter-spacing:1px; transition:all 0.15s; }
-    .filter-btn:hover { color:var(--text); }
-    .filter-btn.active { border-color:var(--gold); color:var(--gold); background:rgba(255,212,71,0.05); }
-    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(160px,1fr)); gap:12px; }
-    .card-item { background:var(--surface); border:1px solid var(--border); padding:16px 12px; display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; transition:all 0.15s; position:relative; overflow:hidden; }
-    .card-item:hover { border-color:var(--accent); transform:translateY(-2px); }
-    .card-item::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
-    .card-item.epic::before { background:linear-gradient(90deg,#ff6b00,#ffd447); }
-    .card-item.legend::before { background:linear-gradient(90deg,#7b68ee,#00e5ff); }
-    .card-item.featured::before { background:linear-gradient(90deg,#1db954,#00b4d8); }
-    .card-item.new::before { background:linear-gradient(90deg,#ff3d57,#ff6b00); }
-    .card-ovr { font-family:'Bebas Neue',sans-serif; font-size:36px; line-height:1; }
-    .card-item.epic .card-ovr { color:var(--gold); }
-    .card-item.legend .card-ovr { color:var(--b); }
-    .card-item.featured .card-ovr { color:var(--s); }
-    .card-item.new .card-ovr { color:var(--accent2); }
-    .card-name { font-size:13px; font-weight:700; line-height:1.3; }
-    .card-pos { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); }
-    .card-type { font-family:'DM Mono',monospace; font-size:9px; padding:2px 6px; border-radius:2px; text-transform:uppercase; letter-spacing:1px; }
-    .card-item.epic .card-type { background:rgba(255,212,71,0.1); color:var(--gold); }
-    .card-item.legend .card-type { background:rgba(123,104,238,0.1); color:var(--b); }
-    .card-item.featured .card-type { background:rgba(29,185,84,0.1); color:var(--s); }
-    .card-item.new .card-type { background:rgba(255,61,87,0.1); color:var(--accent2); }
+    /* ── TIER LIST ── */
+    .tier-list { display: flex; flex-direction: column; gap: 4px; }
+    .tier-row { display: flex; align-items: stretch; gap: 4px; min-height: 72px; }
+    .tier-label {
+      width: 52px; flex-shrink: 0; display: flex; align-items: center;
+      justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 30px;
+    }
+    .tier-s .tier-label { background: rgba(29,185,84,.15);  color: var(--s); border-left: 3px solid var(--s); }
+    .tier-a .tier-label { background: rgba(0,180,216,.15);  color: var(--a); border-left: 3px solid var(--a); }
+    .tier-b .tier-label { background: rgba(123,104,238,.15);color: var(--b); border-left: 3px solid var(--b); }
+    .tier-c .tier-label { background: rgba(245,166,35,.15); color: var(--c); border-left: 3px solid var(--c); }
+    .tier-d .tier-label { background: rgba(255,71,87,.15);  color: var(--d); border-left: 3px solid var(--d); }
+    .tier-cards {
+      flex: 1; background: var(--surface); border: 1px solid var(--border);
+      padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 8px; align-content: center;
+    }
+    .player-chip {
+      background: var(--surface2); border: 1px solid var(--border);
+      padding: 6px 10px; display: flex; flex-direction: column; gap: 2px;
+      transition: all .15s; position: relative;
+    }
+    .player-chip:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,229,255,.1); }
+    .chip-name  { font-size: 13px; font-weight: 700; white-space: nowrap; }
+    .chip-meta  { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); white-space: nowrap; }
+    .chip-pos   { font-family: 'DM Mono', monospace; font-size: 9px; padding: 1px 4px; background: var(--border); color: var(--muted); position: absolute; top: 3px; right: 3px; }
+    .chip-ovr   { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--gold); }
+    .tier-note  { margin-top: 12px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); background: var(--surface); border: 1px solid var(--border); padding: 10px 14px; line-height: 1.6; }
 
-    /* NEWS */
-    .news-list { display:flex; flex-direction:column; gap:8px; }
-    .news-item { background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--accent); padding:16px 20px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; transition:all 0.15s; text-decoration:none; color:inherit; }
-    .news-item:hover { border-left-color:var(--accent2); background:var(--surface2); }
-    .news-title { font-size:14px; font-weight:600; line-height:1.5; }
-    .news-meta { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); white-space:nowrap; margin-top:4px; }
-    .news-arrow { color:var(--muted); font-size:18px; flex-shrink:0; margin-top:2px; }
+    /* ── CARD GALLERY ── */
+    .gallery-filters { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 20px; }
+    .filter-btn {
+      font-family: 'DM Mono', monospace; font-size: 11px; padding: 5px 12px;
+      background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+      cursor: pointer; letter-spacing: 1px; transition: all .15s;
+    }
+    .filter-btn:hover { color: var(--text); }
+    .filter-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(255,212,71,.05); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+    .card-item {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 16px 12px; display: flex; flex-direction: column; align-items: center;
+      gap: 8px; text-align: center; transition: all .15s; position: relative; overflow: hidden;
+    }
+    .card-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+    .card-item.epic::before     { background: linear-gradient(90deg, #ff6b00, #ffd447); }
+    .card-item.bigtime::before  { background: linear-gradient(90deg, #ff6b00, #ff3d57); }
+    .card-item.showtime::before { background: linear-gradient(90deg, #ff3d57, #7b68ee); }
+    .card-item.legend::before   { background: linear-gradient(90deg, #7b68ee, #00e5ff); }
+    .card-item.featured::before { background: linear-gradient(90deg, #1db954, #00b4d8); }
+    .card-item.new::before      { background: linear-gradient(90deg, #ff3d57, #ff6b00); }
+    .card-ovr { font-family: 'Bebas Neue', sans-serif; font-size: 36px; line-height: 1; }
+    .card-item.epic .card-ovr     { color: var(--gold); }
+    .card-item.bigtime .card-ovr  { color: var(--accent2); }
+    .card-item.showtime .card-ovr { color: var(--b); }
+    .card-item.legend .card-ovr   { color: var(--b); }
+    .card-item.featured .card-ovr { color: var(--s); }
+    .card-item.new .card-ovr      { color: var(--accent2); }
+    .card-name { font-size: 13px; font-weight: 700; line-height: 1.3; }
+    .card-pos  { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); }
+    .card-type { font-family: 'DM Mono', monospace; font-size: 9px; padding: 2px 6px; border-radius: 2px; text-transform: uppercase; letter-spacing: 1px; }
+    .card-item.epic .card-type     { background: rgba(255,212,71,.1);  color: var(--gold); }
+    .card-item.bigtime .card-type  { background: rgba(255,61,87,.1);   color: var(--accent2); }
+    .card-item.showtime .card-type { background: rgba(123,104,238,.1); color: var(--b); }
+    .card-item.legend .card-type   { background: rgba(123,104,238,.1); color: var(--b); }
+    .card-item.featured .card-type { background: rgba(29,185,84,.1);   color: var(--s); }
+    .card-item.new .card-type      { background: rgba(255,61,87,.1);   color: var(--accent2); }
 
-    /* EMPTY / LOADING */
-    .empty { text-align:center; padding:48px 20px; color:var(--muted); font-family:'DM Mono',monospace; font-size:13px; line-height:1.8; background:var(--surface); border:1px dashed var(--border); }
-    .empty strong { color:var(--accent); display:block; font-family:'Bebas Neue',sans-serif; font-size:24px; letter-spacing:1px; margin-bottom:8px; }
+    /* ── EMPTY / ERROR ── */
+    .empty {
+      text-align: center; padding: 48px 20px; color: var(--muted);
+      font-family: 'DM Mono', monospace; font-size: 13px; line-height: 1.8;
+      background: var(--surface); border: 1px dashed var(--border);
+    }
+    .empty strong { color: var(--accent); display: block; font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; margin-bottom: 8px; }
+    .empty code   { color: var(--gold); font-size: 12px; }
 
-    /* DIVIDER */
-    .divider { height:1px; background:linear-gradient(90deg,var(--accent),transparent); margin:56px 0; opacity:0.25; }
+    /* ── DIVIDER ── */
+    .divider { height: 1px; background: linear-gradient(90deg, var(--accent), transparent); margin: 56px 0; opacity: .25; }
 
-    /* FOOTER */
-    footer { border-top:1px solid var(--border); padding:28px 0; margin-top:72px; }
-    .footer-inner { display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
-    .footer-note { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); line-height:1.8; }
-    .footer-note a { color:var(--accent); text-decoration:none; }
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 28px 0; margin-top: 72px; }
+    .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-note { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); line-height: 1.8; }
+    .footer-note a { color: var(--accent); text-decoration: none; }
 
-    @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
-    @media(max-width:600px) { .tier-label{width:42px;font-size:24px;} .gallery-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));} }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 600px) {
+      .tier-label { width: 42px; font-size: 24px; }
+      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+    }
   </style>
 </head>
 <body>
@@ -159,14 +226,13 @@
         <span class="logo-sub">Daily Updated</span>
       </div>
       <div class="header-right">
-        <span class="updated-tag" id="updated-tag">Loading...</span>
-        <span class="patch-badge">PATCH v5.3.0</span>
+        <span class="updated-tag" id="updated-tag">Loading…</span>
+        <span class="patch-badge" id="patch-badge">eFOOTBALL</span>
       </div>
     </div>
     <nav>
-      <button class="nav-btn active" onclick="scrollTo('tier-section',this)">Tier List</button>
-      <button class="nav-btn" onclick="scrollTo('gallery-section',this)">Card Drops</button>
-      <button class="nav-btn" onclick="scrollTo('news-section',this)">News</button>
+      <button class="nav-btn active" onclick="navTo('tier-section', this)">Tier List</button>
+      <button class="nav-btn"        onclick="navTo('gallery-section', this)">Card Drops</button>
     </nav>
   </div>
 </header>
@@ -177,7 +243,7 @@
   <div class="hero">
     <p class="hero-eyebrow">Updated Every Day · Zero Ads · Free Forever</p>
     <h1 class="hero-title">KNOW THE <span class="c">META.</span><br><span class="r">WIN MORE.</span></h1>
-    <p class="hero-desc">Daily tier lists, latest card drops, and patch news for eFootball — all pulled fresh every 24 hours from real data.</p>
+    <p class="hero-desc">Daily tier lists and latest card drops for eFootball — pulled fresh every 24 hours from real data.</p>
   </div>
 
   <!-- STATS BAR -->
@@ -188,11 +254,7 @@
     </div>
     <div class="stat-item">
       <span class="stat-val" id="stat-epics">—</span>
-      <span class="stat-label">Epics in DB</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-val" id="stat-news">—</span>
-      <span class="stat-label">News today</span>
+      <span class="stat-label">Epic / Big Time</span>
     </div>
     <div class="stat-item">
       <span class="stat-val" id="stat-updated">—</span>
@@ -205,25 +267,29 @@
     <div class="section-header">
       <div>
         <div class="section-title">META <span>TIER LIST</span></div>
-        <div class="section-meta" style="margin-top:4px">Stat-based · Updated daily from efootballhub</div>
+        <div class="section-meta" style="margin-top:4px">Stat-based · Updated daily from efhub.com</div>
       </div>
     </div>
     <div class="pos-tabs" id="pos-tabs">
-      <button class="pos-tab active" data-pos="ALL" onclick="setPos(this)">ALL</button>
-      <button class="pos-tab" data-pos="GK" onclick="setPos(this)">GK</button>
-      <button class="pos-tab" data-pos="CB" onclick="setPos(this)">CB</button>
-      <button class="pos-tab" data-pos="LB" onclick="setPos(this)">LB</button>
-      <button class="pos-tab" data-pos="RB" onclick="setPos(this)">RB</button>
-      <button class="pos-tab" data-pos="DMF" onclick="setPos(this)">DMF</button>
-      <button class="pos-tab" data-pos="CMF" onclick="setPos(this)">CMF</button>
-      <button class="pos-tab" data-pos="AMF" onclick="setPos(this)">AMF</button>
-      <button class="pos-tab" data-pos="LWF" onclick="setPos(this)">LWF</button>
-      <button class="pos-tab" data-pos="RWF" onclick="setPos(this)">RWF</button>
-      <button class="pos-tab" data-pos="SS" onclick="setPos(this)">SS</button>
-      <button class="pos-tab" data-pos="CF" onclick="setPos(this)">CF</button>
+      <button class="pos-tab active" data-pos="ALL"  onclick="setPos(this)">ALL</button>
+      <button class="pos-tab" data-pos="GK"   onclick="setPos(this)">GK</button>
+      <button class="pos-tab" data-pos="CB"   onclick="setPos(this)">CB</button>
+      <button class="pos-tab" data-pos="LB"   onclick="setPos(this)">LB</button>
+      <button class="pos-tab" data-pos="RB"   onclick="setPos(this)">RB</button>
+      <button class="pos-tab" data-pos="DMF"  onclick="setPos(this)">DMF</button>
+      <button class="pos-tab" data-pos="CMF"  onclick="setPos(this)">CMF</button>
+      <button class="pos-tab" data-pos="AMF"  onclick="setPos(this)">AMF</button>
+      <button class="pos-tab" data-pos="LWF"  onclick="setPos(this)">LWF</button>
+      <button class="pos-tab" data-pos="RWF"  onclick="setPos(this)">RWF</button>
+      <button class="pos-tab" data-pos="SS"   onclick="setPos(this)">SS</button>
+      <button class="pos-tab" data-pos="CF"   onclick="setPos(this)">CF</button>
     </div>
     <div id="tier-output">
-      <div class="empty"><strong>No Data Yet</strong>The scraper hasn't run yet.<br>Go to GitHub → Actions → "Daily Data Refresh" → Run workflow</div>
+      <div class="empty">
+        <strong>No Data Yet</strong>
+        The scraper hasn't run yet.<br>
+        Go to GitHub → Actions → your workflow → <code>Run workflow</code>
+      </div>
     </div>
   </div>
 
@@ -234,33 +300,19 @@
     <div class="section-header">
       <div>
         <div class="section-title">LATEST <span>CARD DROPS</span></div>
-        <div class="section-meta" style="margin-top:4px">Scraped daily from efootballhub.net</div>
+        <div class="section-meta" style="margin-top:4px">Scraped daily from efhub.com</div>
       </div>
     </div>
-    <div class="gallery-filters" id="gallery-filters">
-      <button class="filter-btn active" data-filter="all" onclick="setFilter(this)">ALL</button>
-      <button class="filter-btn" data-filter="epic" onclick="setFilter(this)">EPIC</button>
-      <button class="filter-btn" data-filter="featured" onclick="setFilter(this)">FEATURED</button>
-      <button class="filter-btn" data-filter="legend" onclick="setFilter(this)">LEGEND</button>
-      <button class="filter-btn" data-filter="new" onclick="setFilter(this)">NEW</button>
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all"      onclick="setFilter(this)">ALL</button>
+      <button class="filter-btn"        data-filter="epic"     onclick="setFilter(this)">EPIC</button>
+      <button class="filter-btn"        data-filter="bigtime"  onclick="setFilter(this)">BIG TIME</button>
+      <button class="filter-btn"        data-filter="showtime" onclick="setFilter(this)">SHOW TIME</button>
+      <button class="filter-btn"        data-filter="featured" onclick="setFilter(this)">FEATURED</button>
+      <button class="filter-btn"        data-filter="new"      onclick="setFilter(this)">NEW</button>
     </div>
     <div id="gallery-output">
       <div class="empty"><strong>No Cards Yet</strong>Run the scraper to load card data.</div>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- NEWS -->
-  <div class="section" id="news-section">
-    <div class="section-header">
-      <div>
-        <div class="section-title">LATEST <span>NEWS</span></div>
-        <div class="section-meta" style="margin-top:4px">From Reddit r/eFootball · Updated daily</div>
-      </div>
-    </div>
-    <div id="news-output">
-      <div class="empty"><strong>No News Yet</strong>Run the scraper to load latest news.</div>
     </div>
   </div>
 
@@ -271,7 +323,7 @@
     <div class="footer-inner">
       <div class="footer-note">
         eFMeta — Community tool, not affiliated with Konami.<br>
-        Data from <a href="https://www.efootballhub.net" target="_blank">efootballhub.net</a> &amp; Reddit r/eFootball.
+        Data from <a href="https://efhub.com" target="_blank" rel="noopener">efhub.com</a>.
       </div>
       <div class="footer-note" style="text-align:right">
         eFootball™ is property of KONAMI.<br>
@@ -282,22 +334,21 @@
 </footer>
 
 <script>
-  let allPlayers = [];
-  let tierData = null;
-  let newsData = null;
-  let currentPos = 'ALL';
+  let allPlayers   = [];
+  let tierData     = null;
+  let currentPos   = 'ALL';
   let currentFilter = 'all';
 
-  // ─── NAV ──────────────────────────────────────────────────
-  function scrollTo(id, btn) {
+  // ── NAV ────────────────────────────────────────────────────────────────────
+  function navTo(id, btn) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
 
-  // ─── LOAD ALL DATA ────────────────────────────────────────
+  // ── LOAD ───────────────────────────────────────────────────────────────────
   async function loadAll() {
-    await Promise.all([loadPlayers(), loadTier(), loadNews()]);
+    await Promise.all([loadPlayers(), loadTier()]);
   }
 
   async function loadPlayers() {
@@ -305,14 +356,24 @@
       const res = await fetch('/players.json');
       if (!res.ok) return;
       const data = await res.json();
-      allPlayers = data.players || [];
+      allPlayers = Array.isArray(data.players) ? data.players : [];
+
       document.getElementById('stat-players').textContent = allPlayers.length;
-      document.getElementById('stat-epics').textContent = allPlayers.filter(p => p.type === 'epic').length;
+
+      const premiumCount = allPlayers.filter(p =>
+        p.type === 'epic' || p.type === 'bigtime'
+      ).length;
+      document.getElementById('stat-epics').textContent = premiumCount;
+
       const d = new Date(data.scraped_at);
-      document.getElementById('stat-updated').textContent = d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
-      document.getElementById('updated-tag').textContent = `Updated ${d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}`;
+      const fmt = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+      document.getElementById('stat-updated').textContent = fmt;
+      document.getElementById('updated-tag').textContent  = `Updated ${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}`;
+
       renderGallery();
-    } catch { /* scraper not run yet */ }
+    } catch {
+      // Scraper not run yet — show defaults
+    }
   }
 
   async function loadTier() {
@@ -321,20 +382,12 @@
       if (!res.ok) return;
       tierData = await res.json();
       renderTierList(currentPos);
-    } catch { /* not yet */ }
+    } catch {
+      // Not yet available
+    }
   }
 
-  async function loadNews() {
-    try {
-      const res = await fetch('/news.json');
-      if (!res.ok) return;
-      newsData = await res.json();
-      document.getElementById('stat-news').textContent = newsData.articles?.length || 0;
-      renderNews();
-    } catch { /* not yet */ }
-  }
-
-  // ─── TIER LIST ────────────────────────────────────────────
+  // ── TIER LIST ──────────────────────────────────────────────────────────────
   function setPos(el) {
     document.querySelectorAll('.pos-tab').forEach(t => t.classList.remove('active'));
     el.classList.add('active');
@@ -346,17 +399,17 @@
     const output = document.getElementById('tier-output');
     if (!tierData) return;
 
-    const tiers = ['S','A','B','C','D'];
-    const tierClass = { S:'tier-s', A:'tier-a', B:'tier-b', C:'tier-c', D:'tier-d' };
+    const TIERS = ['S','A','B','C','D'];
+    const TIER_CLASS = { S:'tier-s', A:'tier-a', B:'tier-b', C:'tier-c', D:'tier-d' };
     let html = '<div class="tier-list">';
 
-    tiers.forEach(tier => {
+    TIERS.forEach(tier => {
       let players = tierData.tiers[tier] || [];
       if (posFilter !== 'ALL') {
-        players = players.filter(p => (p.position||'').toUpperCase() === posFilter);
+        players = players.filter(p => (p.position || '').toUpperCase() === posFilter);
       }
 
-      html += `<div class="tier-row ${tierClass[tier]}">
+      html += `<div class="tier-row ${TIER_CLASS[tier]}">
         <div class="tier-label">${tier}</div>
         <div class="tier-cards">`;
 
@@ -366,22 +419,22 @@
         players.forEach(p => {
           html += `<div class="player-chip">
             ${p.position ? `<span class="chip-pos">${p.position}</span>` : ''}
-            <span class="chip-name">${p.name}</span>
-            <span class="chip-meta">${p.type} ${p.overall ? `· <span class="chip-ovr">${p.overall}</span>` : ''}</span>
+            <span class="chip-name">${esc(p.name)}</span>
+            <span class="chip-meta">${esc(p.type)}${p.overall ? ` · <span class="chip-ovr">${p.overall}</span>` : ''}</span>
           </div>`;
         });
       }
-      html += `</div></div>`;
+      html += '</div></div>';
     });
 
-    html += `</div>`;
+    html += '</div>';
     if (tierData.note) {
-      html += `<div class="tier-note">ℹ ${tierData.note}</div>`;
+      html += `<div class="tier-note">ℹ ${esc(tierData.note)}</div>`;
     }
     output.innerHTML = html;
   }
 
-  // ─── GALLERY ──────────────────────────────────────────────
+  // ── GALLERY ────────────────────────────────────────────────────────────────
   function setFilter(el) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     el.classList.add('active');
@@ -397,42 +450,32 @@
       ? allPlayers
       : allPlayers.filter(p => p.type === currentFilter);
 
-    // Show top 48
-    players = players.slice(0, 48);
+    players = players.slice(0, 60);
 
     if (players.length === 0) {
       output.innerHTML = `<div class="empty"><strong>No Cards</strong>No ${currentFilter} cards found in database.</div>`;
       return;
     }
 
-    const html = `<div class="gallery-grid">` +
+    output.innerHTML = `<div class="gallery-grid">` +
       players.map(p => `
-        <div class="card-item ${p.type}">
+        <div class="card-item ${esc(p.type || 'featured')}">
           ${p.overall ? `<div class="card-ovr">${p.overall}</div>` : ''}
-          <div class="card-name">${p.name}</div>
-          ${p.position ? `<div class="card-pos">${p.position}</div>` : ''}
-          <div class="card-type">${p.type}</div>
+          <div class="card-name">${esc(p.name)}</div>
+          ${p.position ? `<div class="card-pos">${esc(p.position)}</div>` : ''}
+          <div class="card-type">${esc(p.type || '')}</div>
         </div>`).join('') +
       `</div>`;
-
-    output.innerHTML = html;
   }
 
-  // ─── NEWS ─────────────────────────────────────────────────
-  function renderNews() {
-    const output = document.getElementById('news-output');
-    if (!newsData?.articles?.length) return;
-
-    output.innerHTML = `<div class="news-list">` +
-      newsData.articles.map(a => `
-        <a class="news-item" href="${a.url}" target="_blank" rel="noopener">
-          <div>
-            <div class="news-title">${a.title}</div>
-            <div class="news-meta">${a.source} · ${a.score ? `↑${a.score} · ` : ''}${new Date(a.time).toLocaleDateString('en-GB',{day:'numeric',month:'short'})}</div>
-          </div>
-          <div class="news-arrow">›</div>
-        </a>`).join('') +
-      `</div>`;
+  // ── HELPERS ────────────────────────────────────────────────────────────────
+  function esc(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
   }
 
   loadAll();
