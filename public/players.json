@@ -1,151 +1,7 @@
 {
-  "scraped_at": "2026-05-10T22:11:25.619Z",
-  "count": 59,
+  "scraped_at": "2026-05-10T22:32:25.275Z",
+  "count": 48,
   "players": [
-    {
-      "name": "Robert Lewandowski",
-      "overall": 102,
-      "position": "CF",
-      "team": "FC Barcelona",
-      "style": "Goal Poacher",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/123236838841410_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Raphinha",
-      "overall": 99,
-      "position": "LWF",
-      "team": "FC Barcelona",
-      "style": "Prolific Winger",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/123236838912052_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Lamine Yamal",
-      "overall": 98,
-      "position": "RWF",
-      "team": "FC Barcelona",
-      "style": "Roaming Flank",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/123236838963522_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Ronald Araujo",
-      "overall": 97,
-      "position": "CB",
-      "team": "FC Barcelona",
-      "style": "Destroyer",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/123236838933952_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Kim Min-Jae",
-      "overall": 97,
-      "position": "CB",
-      "team": "Munchen RW",
-      "style": "Destroyer",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/123236570488412_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Harry Kane",
-      "overall": 96,
-      "position": "CF",
-      "team": "Munchen RW",
-      "style": "Deep-Lying Forward",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/123236570413239_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Bruno Fernandes",
-      "overall": 95,
-      "position": "AMF",
-      "team": "Manchester United",
-      "style": "Hole Player",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/123236570426464_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Ferran Torres",
-      "overall": 95,
-      "position": "LWF",
-      "team": "FC Barcelona",
-      "style": "Roaming Flank",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/123236838918159_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Dani Olmo",
-      "overall": 95,
-      "position": "AMF",
-      "team": "FC Barcelona",
-      "style": "Hole Player",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/123236838912310_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Lionel Messi",
-      "overall": 94,
-      "position": "RWF",
-      "team": "FC Barcelona",
-      "style": "Creative Playmaker",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/299067699633495_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Alejandro Balde",
-      "overall": 94,
-      "position": "LB",
-      "team": "FC Barcelona",
-      "style": "Offensive Wingback",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/123236838948641_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Pedri",
-      "overall": 94,
-      "position": "CMF",
-      "team": "FC Barcelona",
-      "style": "Orchestrator",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/123236838934565_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Eric Garcia",
-      "overall": 94,
-      "position": "CB",
-      "team": "FC Barcelona",
-      "style": "Build Up",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/123236838927745_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "William Saliba",
-      "overall": 94,
-      "position": "CB",
-      "team": "Arsenal FC",
-      "style": "Build Up",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/123236570492641_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Kylian Mbappe",
-      "overall": 93,
-      "position": "CF",
-      "team": "Paris Saint-Germain",
-      "style": "Goal Poacher",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/70380287012990_l.png",
-      "type": "featured"
-    },
-    {
-      "name": "Mohamed Salah",
-      "overall": 93,
-      "position": "RWF",
-      "team": "Liverpool R",
-      "style": "Roaming Flank",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/70380823830307_l.png",
-      "type": "featured"
-    },
     {
       "name": "Ruud Gullit",
       "overall": 89,
@@ -163,6 +19,15 @@
       "style": "Creative Playmaker",
       "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387119495_l.png",
       "type": "epic"
+    },
+    {
+      "name": "Lionel Messi",
+      "overall": 89,
+      "position": "RWF",
+      "team": "FC Barcelona",
+      "style": "Creative Playmaker",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89136409091415_l.png",
+      "type": "bigtime"
     },
     {
       "name": "Gareth Bale",
@@ -217,6 +82,15 @@
       "style": "Prolific Winger",
       "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89136677522134_l.png",
       "type": "bigtime"
+    },
+    {
+      "name": "Kylian Mbappe",
+      "overall": 88,
+      "position": "CF",
+      "team": "Paris Saint-Germain",
+      "style": "Goal Poacher",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106653970182270_l.png",
+      "type": "showtime"
     },
     {
       "name": "Iker Casillas",
@@ -354,12 +228,30 @@
       "type": "bigtime"
     },
     {
+      "name": "Bruno Fernandes",
+      "overall": 87,
+      "position": "AMF",
+      "team": "Manchester United",
+      "style": "Creative Playmaker",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138019757152_l.png",
+      "type": "bigtime"
+    },
+    {
       "name": "Erling Haaland",
       "overall": 87,
       "position": "CF",
       "team": "Manchester B",
       "style": "Fox In The Box",
       "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106652628027815_l.png",
+      "type": "showtime"
+    },
+    {
+      "name": "Robert Lewandowski",
+      "overall": 87,
+      "position": "CF",
+      "team": "FC Barcelona",
+      "style": "Goal Poacher",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106654775417922_l.png",
       "type": "showtime"
     },
     {
@@ -387,6 +279,15 @@
       "team": "Liverpool R",
       "style": "Build Up",
       "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106768055185192_l.png",
+      "type": "showtime"
+    },
+    {
+      "name": "Mohamed Salah",
+      "overall": 87,
+      "position": "RWF",
+      "team": "Liverpool R",
+      "style": "Prolific Winger",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106768055197475_l.png",
       "type": "showtime"
     },
     {
