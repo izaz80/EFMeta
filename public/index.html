@@ -21,75 +21,61 @@
       --s: #1db954; --a: #00b4d8; --b: #7b68ee; --c: #f5a623; --d: #ff4757;
     }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: var(--bg); color: var(--text);
-      font-family: 'Barlow', sans-serif; min-height: 100vh; overflow-x: hidden;
-    }
+    body { background: var(--bg); color: var(--text); font-family: 'Barlow', sans-serif; min-height: 100vh; overflow-x: hidden; }
     body::before {
       content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
-      background:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,229,255,.07) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 30% at 90% 80%, rgba(255,61,87,.05) 0%, transparent 50%);
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,229,255,.07) 0%, transparent 60%),
+                  radial-gradient(ellipse 40% 30% at 90% 80%, rgba(255,61,87,.05) 0%, transparent 50%);
     }
     body::after {
       content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
-      background-image:
-        linear-gradient(rgba(0,229,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,229,255,.03) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(0,229,255,.03) 1px,transparent 1px), linear-gradient(90deg,rgba(0,229,255,.03) 1px,transparent 1px);
       background-size: 40px 40px;
     }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
-    /* ── HEADER ── */
-    header {
-      border-bottom: 1px solid var(--border); padding: 18px 0;
-      position: sticky; top: 0;
-      background: rgba(8,10,15,.95); backdrop-filter: blur(12px); z-index: 100;
-    }
+    /* HEADER */
+    header { border-bottom: 1px solid var(--border); padding: 18px 0; position: sticky; top: 0; background: rgba(8,10,15,.95); backdrop-filter: blur(12px); z-index: 100; }
     .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .logo { display: flex; align-items: baseline; gap: 8px; }
     .logo-main { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 3px; color: var(--accent); text-shadow: 0 0 20px rgba(0,229,255,.4); }
     .logo-sub  { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 2px; }
     .header-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .patch-badge  { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); background: rgba(255,212,71,.1); border: 1px solid rgba(255,212,71,.3); padding: 4px 10px; border-radius: 2px; letter-spacing: 1px; }
-    .updated-tag  { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); }
+    .patch-badge { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); background: rgba(255,212,71,.1); border: 1px solid rgba(255,212,71,.3); padding: 4px 10px; border-radius: 2px; letter-spacing: 1px; }
+    .updated-tag { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); }
     nav { display: flex; gap: 4px; flex-wrap: wrap; padding: 12px 0 0; }
     .nav-btn { font-family: 'DM Mono', monospace; font-size: 11px; padding: 6px 14px; background: transparent; border: 1px solid var(--border); color: var(--muted); cursor: pointer; letter-spacing: 1px; transition: all .15s; }
     .nav-btn:hover, .nav-btn.active { border-color: var(--accent); color: var(--accent); }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero { padding: 64px 0 48px; text-align: center; }
     .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 18px; opacity: 0; animation: fadeUp .6s ease forwards .1s; }
-    .hero-title   { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px,8vw,88px); line-height: .95; letter-spacing: 2px; margin-bottom: 20px; opacity: 0; animation: fadeUp .6s ease forwards .2s; }
+    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px,8vw,88px); line-height: .95; letter-spacing: 2px; margin-bottom: 20px; opacity: 0; animation: fadeUp .6s ease forwards .2s; }
     .hero-title .c { color: var(--accent);  text-shadow: 0 0 40px rgba(0,229,255,.5); }
     .hero-title .r { color: var(--accent2); text-shadow: 0 0 40px rgba(255,61,87,.4); }
     .hero-desc { font-size: 15px; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.7; opacity: 0; animation: fadeUp .6s ease forwards .3s; }
 
-    /* ── STATS BAR ── */
+    /* STATS */
     .stats-bar { display: flex; gap: 24px; flex-wrap: wrap; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 16px 20px; margin: 40px 0; }
     .stat-item  { display: flex; flex-direction: column; gap: 2px; }
     .stat-val   { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--accent); line-height: 1; }
     .stat-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 1px; }
 
-    /* ── SECTION ── */
+    /* SECTION */
     .section { margin-bottom: 72px; }
     .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 28px; padding-bottom: 14px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 12px; }
-    .section-title  { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 2px; line-height: 1; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 2px; line-height: 1; }
     .section-title span { color: var(--accent); }
-    .section-meta   { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+    .section-meta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 1px; }
 
-    /* ── TABS / FILTERS ── */
+    /* TABS / FILTERS */
     .pos-tabs, .gallery-filters { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 24px; }
-    .pos-tab, .filter-btn {
-      font-family: 'DM Mono', monospace; font-size: 11px; padding: 5px 12px;
-      background: var(--surface); border: 1px solid var(--border); color: var(--muted);
-      cursor: pointer; letter-spacing: 1px; transition: all .15s;
-    }
+    .pos-tab, .filter-btn { font-family: 'DM Mono', monospace; font-size: 11px; padding: 5px 12px; background: var(--surface); border: 1px solid var(--border); color: var(--muted); cursor: pointer; letter-spacing: 1px; transition: all .15s; }
     .pos-tab:hover, .filter-btn:hover { color: var(--text); border-color: var(--muted); }
-    .pos-tab.active  { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 500; }
+    .pos-tab.active   { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 500; }
     .filter-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(255,212,71,.05); }
 
-    /* ── TIER LIST ── */
+    /* TIER LIST */
     .tier-list { display: flex; flex-direction: column; gap: 4px; }
     .tier-row  { display: flex; align-items: stretch; gap: 4px; min-height: 100px; }
     .tier-label { width: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 30px; }
@@ -100,87 +86,56 @@
     .tier-d .tier-label { background: rgba(255,71,87,.15);  color: var(--d); border-left: 3px solid var(--d); }
     .tier-cards { flex: 1; background: var(--surface); border: 1px solid var(--border); padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 10px; align-content: center; }
 
-    /* ── TIER CHIP (with image) ── */
+    /* TIER CHIP */
     .player-chip {
       background: var(--surface2); border: 1px solid var(--border);
-      display: flex; align-items: center; gap: 0;
-      transition: all .15s; position: relative; overflow: hidden;
-      width: 180px;
+      display: flex; align-items: center; width: 190px;
+      transition: all .15s; overflow: hidden; text-decoration: none; color: inherit;
     }
     .player-chip:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,229,255,.12); }
-    .chip-img {
-      width: 64px; height: 64px; object-fit: contain; flex-shrink: 0;
-      background: var(--surface); padding: 2px;
-    }
-    .chip-img.no-img {
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--muted);
-    }
+    .chip-img { width: 64px; height: 64px; object-fit: contain; flex-shrink: 0; background: var(--surface); padding: 2px; }
+    .chip-no-img { width: 64px; height: 64px; flex-shrink: 0; background: var(--surface); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--muted); }
     .chip-info { padding: 6px 8px; flex: 1; min-width: 0; }
     .chip-name { font-size: 12px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .chip-pos  { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); margin-top: 2px; }
-    .chip-ovr  { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--gold); line-height: 1; margin-top: 2px; }
-    .chip-type { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); text-transform: uppercase; }
+    .chip-sub  { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); margin-top: 2px; }
+    .chip-ovr  { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--gold); line-height: 1; margin-top: 3px; }
     .tier-note { margin-top: 12px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); background: var(--surface); border: 1px solid var(--border); padding: 10px 14px; line-height: 1.6; }
 
-    /* ── CARD GALLERY ── */
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
-
+    /* CARD GALLERY */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px,1fr)); gap: 16px; }
     .card-item {
       background: var(--surface); border: 1px solid var(--border);
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; transition: all .2s; position: relative; overflow: hidden;
-      cursor: default;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      transition: all .2s; position: relative; overflow: hidden;
+      text-decoration: none; color: inherit;
     }
     .card-item:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,229,255,.12); }
-
-    /* coloured top bar per type */
     .card-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
     .card-item.epic::before     { background: linear-gradient(90deg,#ff6b00,#ffd447); }
     .card-item.bigtime::before  { background: linear-gradient(90deg,#ff6b00,#ff3d57); }
     .card-item.showtime::before { background: linear-gradient(90deg,#ff3d57,#7b68ee); }
-    .card-item.featured::before { background: linear-gradient(90deg,#1db954,#00b4d8); }
-    .card-item.new::before      { background: linear-gradient(90deg,#ff3d57,#ff6b00); }
-
-    /* player image — full width, no cropping */
-    .card-img-wrap {
-      width: 100%; aspect-ratio: 1 / 1;
-      background: var(--surface2);
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-    }
-    .card-img-wrap img {
-      width: 100%; height: 100%; object-fit: contain;
-    }
-    .card-img-placeholder {
-      font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--border);
-    }
-
+    .card-img-wrap { width: 100%; aspect-ratio: 1/1; background: var(--surface2); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .card-img-wrap img { width: 100%; height: 100%; object-fit: contain; }
+    .card-img-placeholder { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--border); }
     .card-body { padding: 10px 12px 14px; width: 100%; }
     .card-ovr  { font-family: 'Bebas Neue', sans-serif; font-size: 32px; line-height: 1; margin-bottom: 4px; }
     .card-item.epic .card-ovr     { color: var(--gold); }
     .card-item.bigtime .card-ovr  { color: var(--accent2); }
     .card-item.showtime .card-ovr { color: var(--b); }
-    .card-item.featured .card-ovr { color: var(--s); }
-    .card-item.new .card-ovr      { color: var(--accent2); }
     .card-name { font-size: 13px; font-weight: 700; line-height: 1.3; margin-bottom: 3px; }
-    .card-pos  { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); margin-bottom: 4px; }
+    .card-pos  { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); margin-bottom: 2px; }
     .card-team { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .card-badge { font-family: 'DM Mono', monospace; font-size: 9px; padding: 2px 6px; border-radius: 2px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-top: 6px; }
     .card-item.epic .card-badge     { background: rgba(255,212,71,.1);  color: var(--gold); }
     .card-item.bigtime .card-badge  { background: rgba(255,61,87,.1);   color: var(--accent2); }
     .card-item.showtime .card-badge { background: rgba(123,104,238,.1); color: var(--b); }
-    .card-item.featured .card-badge { background: rgba(29,185,84,.1);   color: var(--s); }
-    .card-item.new .card-badge      { background: rgba(255,61,87,.1);   color: var(--accent2); }
 
-    /* ── EMPTY ── */
+    /* EMPTY */
     .empty { text-align: center; padding: 48px 20px; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 13px; line-height: 1.8; background: var(--surface); border: 1px dashed var(--border); }
     .empty strong { color: var(--accent); display: block; font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; margin-bottom: 8px; }
-    .empty code   { color: var(--gold); font-size: 12px; }
 
     .divider { height: 1px; background: linear-gradient(90deg,var(--accent),transparent); margin: 56px 0; opacity: .25; }
 
-    /* ── FOOTER ── */
     footer { border-top: 1px solid var(--border); padding: 28px 0; margin-top: 72px; }
     .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
     .footer-note { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); line-height: 1.8; }
@@ -190,8 +145,8 @@
 
     @media (max-width: 600px) {
       .tier-label { width: 42px; font-size: 24px; }
-      .player-chip { width: 150px; }
-      .chip-img { width: 52px; height: 52px; }
+      .player-chip { width: 160px; }
+      .chip-img, .chip-no-img { width: 52px; height: 52px; }
       .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); }
     }
   </style>
@@ -236,7 +191,7 @@
     <div class="section-header">
       <div>
         <div class="section-title">META <span>TIER LIST</span></div>
-        <div class="section-meta" style="margin-top:4px">Stat-based · Updated daily from efhub.com</div>
+        <div class="section-meta" style="margin-top:4px">Stat-based · Updated daily · Click any card to view on efhub.com</div>
       </div>
     </div>
     <div class="pos-tabs">
@@ -265,7 +220,7 @@
     <div class="section-header">
       <div>
         <div class="section-title">LATEST <span>CARD DROPS</span></div>
-        <div class="section-meta" style="margin-top:4px">Scraped daily from efhub.com</div>
+        <div class="section-meta" style="margin-top:4px">Scraped daily · Click any card to view on efhub.com</div>
       </div>
     </div>
     <div class="gallery-filters">
@@ -273,7 +228,6 @@
       <button class="filter-btn"        data-filter="epic"     onclick="setFilter(this)">EPIC</button>
       <button class="filter-btn"        data-filter="bigtime"  onclick="setFilter(this)">BIG TIME</button>
       <button class="filter-btn"        data-filter="showtime" onclick="setFilter(this)">SHOW TIME</button>
-      <button class="filter-btn"        data-filter="featured" onclick="setFilter(this)">FEATURED</button>
     </div>
     <div id="gallery-output">
       <div class="empty"><strong>No Cards Yet</strong>Run the scraper to load card data.</div>
@@ -297,6 +251,10 @@
   let currentPos    = 'ALL';
   let currentFilter = 'all';
 
+  function efhubLink(id) {
+    return id ? `https://efhub.com/players/${id}` : null;
+  }
+
   function navTo(id, btn) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -316,8 +274,8 @@
       document.getElementById('stat-players').textContent = allPlayers.length;
       document.getElementById('stat-epics').textContent   = allPlayers.filter(p => p.type === 'epic' || p.type === 'bigtime').length;
       const d = new Date(data.scraped_at);
-      document.getElementById('stat-updated').textContent = d.toLocaleDateString('en-GB', { day:'numeric', month:'short' });
-      document.getElementById('updated-tag').textContent  = `Updated ${d.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' })}`;
+      document.getElementById('stat-updated').textContent = d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+      document.getElementById('updated-tag').textContent  = `Updated ${d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}`;
       renderGallery();
     } catch {}
   }
@@ -331,7 +289,7 @@
     } catch {}
   }
 
-  // ── TIER ──────────────────────────────────────────────────────────────────
+  // ── TIER ─────────────────────────────────────────────────────────────────
   function setPos(el) {
     document.querySelectorAll('.pos-tab').forEach(t => t.classList.remove('active'));
     el.classList.add('active');
@@ -343,7 +301,7 @@
     const output = document.getElementById('tier-output');
     if (!tierData) return;
     const TIERS = ['S','A','B','C','D'];
-    const TC    = { S:'tier-s', A:'tier-a', B:'tier-b', C:'tier-c', D:'tier-d' };
+    const TC    = {S:'tier-s',A:'tier-a',B:'tier-b',C:'tier-c',D:'tier-d'};
     let html = '<div class="tier-list">';
 
     TIERS.forEach(tier => {
@@ -356,17 +314,20 @@
         html += `<span style="color:var(--muted);font-size:13px;font-style:italic">No ${posFilter==='ALL'?'':posFilter+' '}players in this tier</span>`;
       } else {
         players.forEach(p => {
-          html += `<div class="player-chip">
+          const link = efhubLink(p.id);
+          const tag  = link ? 'a' : 'div';
+          const href = link ? `href="${esc(link)}" target="_blank" rel="noopener"` : '';
+          html += `<${tag} class="player-chip" ${href}>
             ${p.imageUrl
               ? `<img class="chip-img" src="${esc(p.imageUrl)}" alt="${esc(p.name)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
               : ''}
-            <div class="chip-img no-img" style="${p.imageUrl?'display:none':''}">${esc((p.position||'?'))}</div>
+            <div class="chip-no-img" style="${p.imageUrl ? 'display:none' : ''}">${esc(p.position||'?')}</div>
             <div class="chip-info">
               <div class="chip-name">${esc(p.name)}</div>
-              <div class="chip-pos">${esc(p.position||'')} · ${esc(p.type||'')}</div>
+              <div class="chip-sub">${esc(p.position||'')} · ${esc(p.type||'')}</div>
               ${p.overall ? `<div class="chip-ovr">${p.overall}</div>` : ''}
             </div>
-          </div>`;
+          </${tag}>`;
         });
       }
       html += '</div></div>';
@@ -377,7 +338,7 @@
     output.innerHTML = html;
   }
 
-  // ── GALLERY ───────────────────────────────────────────────────────────────
+  // ── GALLERY ──────────────────────────────────────────────────────────────
   function setFilter(el) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     el.classList.add('active');
@@ -397,8 +358,11 @@
       return;
     }
 
-    output.innerHTML = `<div class="gallery-grid">` + players.map(p => `
-      <div class="card-item ${esc(p.type||'featured')}">
+    output.innerHTML = `<div class="gallery-grid">` + players.map(p => {
+      const link = efhubLink(p.id);
+      const tag  = link ? 'a' : 'div';
+      const href = link ? `href="${esc(link)}" target="_blank" rel="noopener"` : '';
+      return `<${tag} class="card-item ${esc(p.type||'epic')}" ${href}>
         <div class="card-img-wrap">
           ${p.imageUrl
             ? `<img src="${esc(p.imageUrl)}" alt="${esc(p.name)}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=card-img-placeholder>${esc(p.position||'?')}</span>'">`
@@ -411,7 +375,8 @@
           ${p.team     ? `<div class="card-team">${esc(p.team)}</div>`    : ''}
           <div class="card-badge">${esc(p.type||'')}</div>
         </div>
-      </div>`).join('') + `</div>`;
+      </${tag}>`;
+    }).join('') + `</div>`;
   }
 
   function esc(s) {
