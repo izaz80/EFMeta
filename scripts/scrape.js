@@ -5,7 +5,6 @@ import path from 'path';
 const PUBLIC = path.join(process.cwd(), 'public');
 const BASE   = 'https://efhub.com/api/public/players';
 
-// Featured (playerType=2) returns 403 — removed. New players endpoint also unreliable — removed.
 const ENDPOINTS = [
   { label: 'epic',     playerType: 5 },
   { label: 'bigtime',  playerType: 7 },
@@ -14,33 +13,72 @@ const ENDPOINTS = [
 
 const TYPE_BONUS = { epic: 4, bigtime: 3, showtime: 3 };
 
+// Full browser-like headers — mimics a real Chrome request to efhub.com
+const HEADERS = {
+  'User-Agent':      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  'Accept':          'application/json, text/plain, */*',
+  'Accept-Language': 'en-US,en;q=0.9',
+  'Accept-Encoding': 'gzip, deflate, br',
+  'Referer':         'https://efhub.com/',
+  'Origin':          'https://efhub.com',
+  'Connection':      'keep-alive',
+  'Sec-Fetch-Dest':  'empty',
+  'Sec-Fetch-Mode':  'cors',
+  'Sec-Fetch-Site':  'same-origin',
+  'Sec-Ch-Ua':       '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+  'Sec-Ch-Ua-Mobile':'?0',
+  'Sec-Ch-Ua-Platform': '"Windows"',
+};
+
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+// ─── FETCH WITH RETRY ─────────────────────────────────────────────────────────
+async function fetchWithRetry(url, retries = 3, delayMs = 2000) {
+  for (let i = 0; i < retries; i++) {
+    if (i > 0) {
+      console.log(`  Retry ${i}/${retries - 1} after ${delayMs}ms…`);
+      await sleep(delayMs);
+    }
+    try {
+      const res = await fetch(url, { headers: HEADERS, timeout: 25000 });
+      if (res.ok) return res;
+      console.log(`  HTTP ${res.status} (attempt ${i + 1})`);
+      if (res.status === 401 || res.status === 403) {
+        // No point retrying auth errors unless we add cookies
+        return res;
+      }
+    } catch (err) {
+      console.log(`  Network error (attempt ${i + 1}): ${err.message}`);
+    }
+  }
+  throw new Error(`All ${retries} attempts failed for ${url}`);
+}
+
 // ─── FETCH ONE CATEGORY ───────────────────────────────────────────────────────
 async function fetchCategory({ label, playerType }) {
   const url = `${BASE}?playerType=${playerType}`;
   console.log(`\nFetching [${label}]: ${url}`);
 
-  const res = await fetch(url, {
-    headers: {
-      'User-Agent': 'Mozilla/5.0',
-      'Accept':     'application/json',
-      'Referer':    'https://efhub.com/',
-    },
-    timeout: 20000,
-  });
+  const res = await fetchWithRetry(url);
 
-  if (!res.ok) throw new Error(`HTTP ${res.status} for playerType=${playerType}`);
+  if (!res.ok) {
+    // If still 403, log the response body for debugging
+    const body = await res.text().catch(() => '');
+    console.error(`  HTTP ${res.status} — response: ${body.slice(0, 200)}`);
+    throw new Error(`HTTP ${res.status} for playerType=${playerType}`);
+  }
 
   const json = await res.json();
   const raw  = Array.isArray(json) ? json : (json.players ?? []);
 
   const players = raw.map(p => ({
-    id:       p.id       ?? null,           // used to build efhub.com/players/{id}
-    name:     p.name     || p.nameJa || '—',
+    id:       p.id            ?? null,
+    name:     p.name          || p.nameJa || '—',
     overall:  p.overallRating ?? null,
-    position: p.position  ?? null,
-    team:     p.team      ?? null,
-    style:    p.playingStyle ?? null,
-    imageUrl: p.imageUrl  ?? null,
+    position: p.position      ?? null,
+    team:     p.team          ?? null,
+    style:    p.playingStyle  ?? null,
+    imageUrl: p.imageUrl      ?? null,
     type:     label,
   })).filter(p => p.name !== '—');
 
@@ -58,7 +96,6 @@ function generateTierList(players) {
     score: p.overall + (TYPE_BONUS[p.type] ?? 0),
   }));
 
-  // Dedupe by name — keep highest score
   const byName = {};
   scored.forEach(p => {
     if (!byName[p.name] || p.score > byName[p.name].score) byName[p.name] = p;
@@ -103,14 +140,17 @@ async function main() {
     } catch (err) {
       console.error(`  ERROR [${ep.label}]: ${err.message}`);
     }
+    // Small delay between requests to avoid rate limiting
+    await sleep(1000);
   }
 
   if (allPlayers.length === 0) {
-    console.error('\n❌ No players scraped. Check the API URL or network access.');
+    console.error('\n❌ No players scraped.');
+    console.error('   The API may require authentication cookies.');
+    console.error('   Open DevTools on efhub.com → Network → find the players API request → copy the Cookie header and set it as EFHUB_COOKIE in GitHub Secrets.');
     process.exit(1);
   }
 
-  // Dedupe by name — keep highest overall
   const byName = {};
   allPlayers.forEach(p => {
     if (!byName[p.name] || (p.overall ?? 0) > (byName[p.name].overall ?? 0)) {
