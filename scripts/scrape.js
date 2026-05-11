@@ -5,15 +5,14 @@ import path from 'path';
 const PUBLIC = path.join(process.cwd(), 'public');
 const BASE   = 'https://efhub.com/api/public/players';
 
-// playerType IDs confirmed from efhub.com Network tab
+// Featured (playerType=2) returns 403 — removed. New players endpoint also unreliable — removed.
 const ENDPOINTS = [
   { label: 'epic',     playerType: 5 },
   { label: 'bigtime',  playerType: 7 },
   { label: 'showtime', playerType: 8 },
-  { label: 'featured', playerType: 2 },
 ];
 
-const TYPE_BONUS = { epic: 4, bigtime: 3, showtime: 3, legend: 2, featured: 1, new: 0 };
+const TYPE_BONUS = { epic: 4, bigtime: 3, showtime: 3 };
 
 // ─── FETCH ONE CATEGORY ───────────────────────────────────────────────────────
 async function fetchCategory({ label, playerType }) {
@@ -35,6 +34,7 @@ async function fetchCategory({ label, playerType }) {
   const raw  = Array.isArray(json) ? json : (json.players ?? []);
 
   const players = raw.map(p => ({
+    id:       p.id       ?? null,           // used to build efhub.com/players/{id}
     name:     p.name     || p.nameJa || '—',
     overall:  p.overallRating ?? null,
     position: p.position  ?? null,
@@ -46,38 +46,6 @@ async function fetchCategory({ label, playerType }) {
 
   console.log(`  → ${players.length} players`);
   return players;
-}
-
-// ─── FETCH "NEW" PLAYERS ──────────────────────────────────────────────────────
-async function fetchNew() {
-  const url = `https://efhub.com/`;
-  console.log(`\nFetching [new]: ${url}`);
-  try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json', 'Referer': 'https://efhub.com/' },
-      timeout: 20000,
-    });
-    if (!res.ok) {
-      console.log(`  Skipping new (HTTP ${res.status})`);
-      return [];
-    }
-    const json = await res.json();
-    const raw  = Array.isArray(json) ? json : (json.players ?? []);
-    const players = raw.map(p => ({
-      name:     p.name || p.nameJa || '—',
-      overall:  p.overallRating ?? null,
-      position: p.position ?? null,
-      team:     p.team ?? null,
-      style:    p.playingStyle ?? null,
-      imageUrl: p.imageUrl ?? null,
-      type:     'new',
-    })).filter(p => p.name !== '—');
-    console.log(`  → ${players.length} players`);
-    return players;
-  } catch (err) {
-    console.warn(`  Skipping new: ${err.message}`);
-    return [];
-  }
 }
 
 // ─── TIER LIST ────────────────────────────────────────────────────────────────
@@ -118,7 +86,7 @@ function generateTierList(players) {
   return {
     generated_at: new Date().toISOString(),
     method:       'stat-based',
-    note:         'Rankings use max overall + card type bonus (Epic +4, BigTime/ShowTime +3, Featured +1). Data from efhub.com.',
+    note:         'Rankings use max overall + card type bonus (Epic +4, BigTime/ShowTime +3). Data from efhub.com.',
     tiers,
   };
 }
@@ -136,8 +104,6 @@ async function main() {
       console.error(`  ERROR [${ep.label}]: ${err.message}`);
     }
   }
-
-  allPlayers.push(...await fetchNew());
 
   if (allPlayers.length === 0) {
     console.error('\n❌ No players scraped. Check the API URL or network access.');
