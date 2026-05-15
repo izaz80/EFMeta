@@ -91,30 +91,47 @@ function generateTierList(players) {
   const rated = players.filter(p => p.overall && p.overall >= 80);
   console.log(`\nBuilding tier list from ${rated.length} rated players`);
 
-  const scored = rated.map(p => ({
-    ...p,
-    score: p.overall + (TYPE_BONUS[p.type] ?? 0),
-  }));
+  const TYPE_BONUS = { epic: 1.5, bigtime: 1.2, showtime: 1.0 };
 
+  // ── Step 1: Z-score per position ──────────────────────────────────────────
+  // Group by position and calculate mean + stddev
+  const byPos = {};
+  rated.forEach(p => {
+    if (!byPos[p.position]) byPos[p.position] = [];
+    byPos[p.position].push(p.overall);
+  });
+
+  const posStats = {};
+  Object.entries(byPos).forEach(([pos, ratings]) => {
+    const mean = ratings.reduce((a, b) => a + b, 0) / ratings.length;
+    const variance = ratings.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / ratings.length;
+    const stddev = Math.sqrt(variance) || 1; // avoid divide-by-zero if only 1 player at position
+    posStats[pos] = { mean, stddev };
+  });
+
+  // ── Step 2: Score every player ────────────────────────────────────────────
+  const scored = rated.map(p => {
+    const { mean, stddev } = posStats[p.position] || { mean: p.overall, stddev: 1 };
+    const zScore    = (p.overall - mean) / stddev;
+    const typeBonus = TYPE_BONUS[p.type] ?? 0;
+    return { ...p, finalScore: zScore + typeBonus };
+  });
+
+  // Dedupe by name — keep highest finalScore
   const byName = {};
   scored.forEach(p => {
-    if (!byName[p.name] || p.score > byName[p.name].score) byName[p.name] = p;
+    if (!byName[p.name] || p.finalScore > byName[p.name].finalScore) byName[p.name] = p;
   });
-  const unique = Object.values(byName).sort((a, b) => b.score - a.score);
+  const unique = Object.values(byName).sort((a, b) => b.finalScore - a.finalScore);
 
-  const scores = unique.map(p => p.score);
-  const max    = scores[0]  || 100;
-  const min    = scores[scores.length - 1] || 80;
-  const range  = max - min || 1;
-
+  // ── Step 3: Assign tiers by absolute score cutoffs ────────────────────────
   const tiers = { S: [], A: [], B: [], C: [], D: [] };
   unique.forEach(p => {
-    const pct = (p.score - min) / range;
-    if      (pct >= 0.80) tiers.S.push(p);
-    else if (pct >= 0.60) tiers.A.push(p);
-    else if (pct >= 0.40) tiers.B.push(p);
-    else if (pct >= 0.20) tiers.C.push(p);
-    else                  tiers.D.push(p);
+    if      (p.finalScore >= 2.0)  tiers.S.push(p);
+    else if (p.finalScore >= 1.0)  tiers.A.push(p);
+    else if (p.finalScore >= 0.0)  tiers.B.push(p);
+    else if (p.finalScore >= -1.0) tiers.C.push(p);
+    else                           tiers.D.push(p);
   });
 
   Object.keys(tiers).forEach(t => { tiers[t] = tiers[t].slice(0, 15); });
@@ -122,8 +139,8 @@ function generateTierList(players) {
 
   return {
     generated_at: new Date().toISOString(),
-    method:       'stat-based',
-    note:         'Rankings use max overall + card type bonus (Epic +4, BigTime/ShowTime +3). Data from efhub.com.',
+    method:       'position-relative',
+    note:         'Tiers based on Z-score within each position group + card type bonus (Epic +1.5, BigTime +1.2, ShowTime +1.0). A player rated S is elite for their position, not just high overall.',
     tiers,
   };
 }
