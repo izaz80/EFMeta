@@ -1,17 +1,7 @@
 {
-  "scraped_at": "2026-05-31T04:00:56.708Z",
-  "count": 16,
+  "scraped_at": "2026-06-02T04:08:25.871Z",
+  "count": 28,
   "players": [
-    {
-      "id": "88040387119495",
-      "name": "Pele",
-      "overall": 89,
-      "position": "SS",
-      "team": "Santos FC",
-      "style": "Creative Playmaker",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387119495_l.png",
-      "type": "epic"
-    },
     {
       "id": "88041460993514",
       "name": "Ruud Gullit",
@@ -23,43 +13,33 @@
       "type": "epic"
     },
     {
-      "id": "87960930356715",
-      "name": "Johan Cruyff",
-      "overall": 88,
+      "id": "88040387119495",
+      "name": "Pele",
+      "overall": 89,
       "position": "SS",
+      "team": "Santos FC",
+      "style": "Creative Playmaker",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387119495_l.png",
+      "type": "epic"
+    },
+    {
+      "id": "89136409091415",
+      "name": "Lionel Messi",
+      "overall": 89,
+      "position": "RWF",
       "team": "FC Barcelona",
-      "style": "Hole Player",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/87960930356715_l.png",
-      "type": "epic"
+      "style": "Creative Playmaker",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89136409091415_l.png",
+      "type": "bigtime"
     },
     {
-      "id": "88040387119642",
-      "name": "Zlatan Ibrahimovic",
-      "overall": 88,
-      "position": "CF",
-      "team": "Sweden",
-      "style": "Fox In The Box",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387119642_l.png",
-      "type": "epic"
-    },
-    {
-      "id": "88041460894376",
+      "id": "88041729329832",
       "name": "Gareth Bale",
       "overall": 88,
       "position": "RWF",
       "team": "Madrid Chamartin B",
       "style": "Prolific Winger",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88041460894376_l.png",
-      "type": "epic"
-    },
-    {
-      "id": "88041460993461",
-      "name": "Luis Figo",
-      "overall": 88,
-      "position": "RWF",
-      "team": "Portugal",
-      "style": "Cross Specialist",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88041460993461_l.png",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88041729329832_l.png",
       "type": "epic"
     },
     {
@@ -73,24 +53,54 @@
       "type": "epic"
     },
     {
-      "id": "88036629155304",
-      "name": "Frank Rijkaard",
-      "overall": 87,
-      "position": "DMF",
-      "team": "AC Milan",
-      "style": "Orchestrator",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036629155304_l.png",
+      "id": "88041460993461",
+      "name": "Luis Figo",
+      "overall": 88,
+      "position": "RWF",
+      "team": "Portugal",
+      "style": "Cross Specialist",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88041460993461_l.png",
       "type": "epic"
     },
     {
-      "id": "88039045074413",
-      "name": "K. Heinz Rummenigge",
-      "overall": 87,
+      "id": "88040387119642",
+      "name": "Zlatan Ibrahimovic",
+      "overall": 88,
       "position": "CF",
-      "team": "Germany",
-      "style": "Goal Poacher",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88039045074413_l.png",
+      "team": "Sweden",
+      "style": "Fox In The Box",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387119642_l.png",
       "type": "epic"
+    },
+    {
+      "id": "88039581945323",
+      "name": "Johan Cruyff",
+      "overall": 88,
+      "position": "CF",
+      "team": "FC Barcelona",
+      "style": "Deep-Lying Forward",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88039581945323_l.png",
+      "type": "epic"
+    },
+    {
+      "id": "89137214427270",
+      "name": "Eden Hazard",
+      "overall": 88,
+      "position": "AMF",
+      "team": "Belgium",
+      "style": "Hole Player",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89137214427270_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89136677522134",
+      "name": "George Best",
+      "overall": 88,
+      "position": "RWF",
+      "team": "Manchester United",
+      "style": "Prolific Winger",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89136677522134_l.png",
+      "type": "bigtime"
     },
     {
       "id": "87962272400212",
@@ -161,6 +171,116 @@
       "style": "Offensive Wingback",
       "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036360591553_l.png",
       "type": "epic"
+    },
+    {
+      "id": "88036360594345",
+      "name": "Franck Ribery",
+      "overall": 87,
+      "position": "LWF",
+      "team": "Munchen RW",
+      "style": "Creative Playmaker",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036360594345_l.png",
+      "type": "epic"
+    },
+    {
+      "id": "89060978855375",
+      "name": "Romario",
+      "overall": 87,
+      "position": "CF",
+      "team": "Brazil",
+      "style": "Fox In The Box",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89060978855375_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89061515600624",
+      "name": "Karim Benzema",
+      "overall": 87,
+      "position": "CF",
+      "team": "France",
+      "style": "Deep-Lying Forward",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89061515600624_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89061784067488",
+      "name": "Neymar Jr",
+      "overall": 87,
+      "position": "LWF",
+      "team": "Brazil",
+      "style": "Creative Playmaker",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89061784067488_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89063394774510",
+      "name": "Zico",
+      "overall": 87,
+      "position": "AMF",
+      "team": "Brazil",
+      "style": "Classic No. 10",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89063394774510_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89134261635137",
+      "name": "Luis Suarez",
+      "overall": 87,
+      "position": "CF",
+      "team": "FC Barcelona",
+      "style": "Goal Poacher",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89134261635137_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138019757152",
+      "name": "Bruno Fernandes",
+      "overall": 87,
+      "position": "AMF",
+      "team": "Manchester United",
+      "style": "Creative Playmaker",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138019757152_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138019858754",
+      "name": "Lamine Yamal",
+      "overall": 87,
+      "position": "RWF",
+      "team": "FC Barcelona",
+      "style": "Prolific Winger",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138019858754_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89065005387197",
+      "name": "Patrick Vieira",
+      "overall": 86,
+      "position": "DMF",
+      "team": "Arsenal FC",
+      "style": "Box To Box",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89065005387197_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89067152870864",
+      "name": "Ronaldinho Gaucho",
+      "overall": 86,
+      "position": "LWF",
+      "team": "FC Barcelona",
+      "style": "Creative Playmaker",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89067152870864_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89068226588798",
+      "name": "Kylian Mbappe",
+      "overall": 86,
+      "position": "LWF",
+      "team": "France",
+      "style": "Goal Poacher",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89068226588798_l.png",
+      "type": "bigtime"
     }
   ]
 }
