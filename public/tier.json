@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11T04:06:59.441Z",
+  "generated_at": "2026-06-12T04:08:44.957Z",
   "method": "position-relative",
   "note": "Tiers based on Z-score within each position group + card type bonus (Epic +1.5, BigTime +1.2, ShowTime +1.0). A player rated S is elite for their position, not just high overall.",
   "tiers": {
@@ -13,7 +13,7 @@
         "style": "Fox In The Box",
         "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88041460993514_l.png",
         "type": "epic",
-        "finalScore": 3.834868926348074
+        "finalScore": 3.0075567228888183
       },
       {
         "id": "88044145348075",
@@ -24,7 +24,7 @@
         "style": "Hole Player",
         "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88044145348075_l.png",
         "type": "epic",
-        "finalScore": 3.250000000000007
+        "finalScore": 2.91421356237309
       },
       {
         "id": "88041460996837",
@@ -35,29 +35,20 @@
         "style": "Destroyer",
         "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88041460996837_l.png",
         "type": "epic",
-        "finalScore": 2.914213562373105
-      },
+        "finalScore": 2.5
+      }
+    ],
+    "A": [
       {
-        "id": "89136409091415",
-        "name": "Lionel Messi",
-        "overall": 89,
-        "position": "RWF",
-        "team": "FC Barcelona",
-        "style": "Creative Playmaker",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89136409091415_l.png",
-        "type": "bigtime",
-        "finalScore": 2.7811388300841893
-      },
-      {
-        "id": "89133993205152",
-        "name": "Neymar Jr",
-        "overall": 87,
-        "position": "LWF",
-        "team": "FC Barcelona",
-        "style": "Prolific Winger",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89133993205152_l.png",
-        "type": "bigtime",
-        "finalScore": 2.614213562373105
+        "id": "88040387119642",
+        "name": "Zlatan Ibrahimovic",
+        "overall": 88,
+        "position": "CF",
+        "team": "Sweden",
+        "style": "Fox In The Box",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387119642_l.png",
+        "type": "epic",
+        "finalScore": 1.8015113445777637
       },
       {
         "id": "88040387119495",
@@ -68,31 +59,7 @@
         "style": "Creative Playmaker",
         "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387119495_l.png",
         "type": "epic",
-        "finalScore": 2.5
-      },
-      {
-        "id": "88040387119642",
-        "name": "Zlatan Ibrahimovic",
-        "overall": 88,
-        "position": "CF",
-        "team": "Sweden",
-        "style": "Fox In The Box",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387119642_l.png",
-        "type": "epic",
-        "finalScore": 2.3980265101338745
-      }
-    ],
-    "A": [
-      {
-        "id": "89137214427270",
-        "name": "Eden Hazard",
-        "overall": 88,
-        "position": "AMF",
-        "team": "Belgium",
-        "style": "Hole Player",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89137214427270_l.png",
-        "type": "bigtime",
-        "finalScore": 1.700000000000007
+        "finalScore": 1.5
       },
       {
         "id": "88041729329832",
@@ -117,263 +84,119 @@
         "finalScore": 1.5
       },
       {
-        "id": "88044145348017",
-        "name": "David Beckham",
+        "id": "88044145348069",
+        "name": "Lothar Matthaus",
         "overall": 87,
-        "position": "RMF",
-        "team": "England",
-        "style": "Cross Specialist",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88044145348017_l.png",
+        "position": "CMF",
+        "team": "Germany",
+        "style": "Box To Box",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88044145348069_l.png",
         "type": "epic",
         "finalScore": 1.5
       },
       {
-        "id": "88041460993477",
-        "name": "Pavel Nedved",
-        "overall": 87,
-        "position": "LMF",
-        "team": "Czechia",
-        "style": "Creative Playmaker",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88041460993477_l.png",
-        "type": "epic",
-        "finalScore": 1.5
-      },
-      {
-        "id": "88041460993474",
-        "name": "Paolo Maldini",
-        "overall": 87,
-        "position": "LB",
-        "team": "AC Milan",
-        "style": "Defensive Full-back",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88041460993474_l.png",
-        "type": "epic",
-        "finalScore": 1.5
-      },
-      {
-        "id": "88040387255015",
-        "name": "Peter Schmeichel",
+        "id": "88036092150743",
+        "name": "Gianluigi Buffon",
         "overall": 87,
         "position": "GK",
-        "team": "Denmark",
+        "team": "Italy",
         "style": "Defensive Goalkeeper",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387255015_l.png",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036092150743_l.png",
         "type": "epic",
         "finalScore": 1.5
       },
       {
-        "id": "88040387126185",
+        "id": "88036360589289",
+        "name": "Andres Iniesta",
+        "overall": 87,
+        "position": "CMF",
+        "team": "FC Barcelona",
+        "style": "Hole Player",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036360589289_l.png",
+        "type": "epic",
+        "finalScore": 1.5
+      },
+      {
+        "id": "88036360591553",
+        "name": "Philipp Lahm",
+        "overall": 87,
+        "position": "RB",
+        "team": "Munchen RW",
+        "style": "Offensive Wingback",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036360591553_l.png",
+        "type": "epic",
+        "finalScore": 1.5
+      },
+      {
+        "id": "88036360594345",
         "name": "Franck Ribery",
         "overall": 87,
-        "position": "LMF",
-        "team": "France",
-        "style": "Cross Specialist",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387126185_l.png",
+        "position": "LWF",
+        "team": "Munchen RW",
+        "style": "Creative Playmaker",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036360594345_l.png",
         "type": "epic",
         "finalScore": 1.5
-      },
-      {
-        "id": "88040387120247",
-        "name": "Petr Cech",
-        "overall": 87,
-        "position": "GK",
-        "team": "Chelsea B",
-        "style": "Defensive Goalkeeper",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387120247_l.png",
-        "type": "epic",
-        "finalScore": 1.5
-      },
-      {
-        "id": "89136677522134",
-        "name": "George Best",
-        "overall": 88,
-        "position": "RWF",
-        "team": "Manchester United",
-        "style": "Prolific Winger",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89136677522134_l.png",
-        "type": "bigtime",
-        "finalScore": 1.2
-      },
-      {
-        "id": "89065005387197",
-        "name": "Patrick Vieira",
-        "overall": 86,
-        "position": "DMF",
-        "team": "Arsenal FC",
-        "style": "Box To Box",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89065005387197_l.png",
-        "type": "bigtime",
-        "finalScore": 1.2
       }
     ],
     "B": [
       {
-        "id": "88040655554922",
-        "name": "Gerd Muller",
-        "overall": 87,
-        "position": "CF",
-        "team": "Munchen RW",
-        "style": "Fox In The Box",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040655554922_l.png",
-        "type": "epic",
-        "finalScore": 0.9611840939196753
-      },
-      {
-        "id": "88040387251679",
-        "name": "Ruud van Nistelrooij",
-        "overall": 87,
-        "position": "CF",
-        "team": "Netherlands",
-        "style": "Fox In The Box",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387251679_l.png",
-        "type": "epic",
-        "finalScore": 0.9611840939196753
-      },
-      {
-        "id": "88040387120260",
-        "name": "Ferenc Puskas",
-        "overall": 87,
-        "position": "CF",
-        "team": "Hungary",
-        "style": "Deep-Lying Forward",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387120260_l.png",
-        "type": "epic",
-        "finalScore": 0.9611840939196753
-      },
-      {
-        "id": "88040655690467",
-        "name": "Jaap Stam",
-        "overall": 87,
-        "position": "CB",
-        "team": "Manchester United",
-        "style": "Build Up",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040655690467_l.png",
-        "type": "epic",
-        "finalScore": 0.7928932188134625
-      },
-      {
-        "id": "88040387150135",
-        "name": "Leonardo Bonucci",
-        "overall": 87,
-        "position": "CB",
-        "team": "Italy",
-        "style": "Build Up",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387150135_l.png",
-        "type": "epic",
-        "finalScore": 0.7928932188134625
-      },
-      {
-        "id": "88040387119839",
+        "id": "88036092152543",
         "name": "Michel Platini",
         "overall": 87,
         "position": "AMF",
         "team": "Piemonte BN",
-        "style": "Creative Playmaker",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387119839_l.png",
+        "style": "Classic No. 10",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036092152543_l.png",
         "type": "epic",
-        "finalScore": 0.7500000000000071
+        "finalScore": 0.7928932188134474
       },
       {
-        "id": "89134261635137",
-        "name": "Luis Suarez",
+        "id": "88036360588974",
+        "name": "Kaka",
         "overall": 87,
-        "position": "CF",
-        "team": "FC Barcelona",
-        "style": "Goal Poacher",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89134261635137_l.png",
-        "type": "bigtime",
-        "finalScore": 0.6611840939196753
+        "position": "AMF",
+        "team": "AC Milan",
+        "style": "Creative Playmaker",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036360588974_l.png",
+        "type": "epic",
+        "finalScore": 0.7928932188134474
       },
       {
-        "id": "89061515600624",
-        "name": "Karim Benzema",
-        "overall": 87,
-        "position": "CF",
-        "team": "France",
-        "style": "Deep-Lying Forward",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89061515600624_l.png",
-        "type": "bigtime",
-        "finalScore": 0.6611840939196753
-      },
-      {
-        "id": "89060978855375",
+        "id": "88044145348047",
         "name": "Romario",
         "overall": 87,
         "position": "CF",
         "team": "Brazil",
-        "style": "Fox In The Box",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89060978855375_l.png",
-        "type": "bigtime",
-        "finalScore": 0.6611840939196753
+        "style": "Goal Poacher",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88044145348047_l.png",
+        "type": "epic",
+        "finalScore": 0.5954659662667091
       },
       {
-        "id": "88040655554414",
-        "name": "Gianfranco Zola",
+        "id": "88036360588001",
+        "name": "Eric Cantona",
         "overall": 87,
-        "position": "SS",
-        "team": "Chelsea B",
-        "style": "Creative Playmaker",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040655554414_l.png",
+        "position": "CF",
+        "team": "Manchester United",
+        "style": "Fox In The Box",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036360588001_l.png",
+        "type": "epic",
+        "finalScore": 0.5954659662667091
+      },
+      {
+        "id": "88036360719801",
+        "name": "Carles Puyol",
+        "overall": 87,
+        "position": "CB",
+        "team": "Spain",
+        "style": "Destroyer",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036360719801_l.png",
         "type": "epic",
         "finalScore": 0.5
-      },
-      {
-        "id": "89067152870864",
-        "name": "Ronaldinho Gaucho",
-        "overall": 86,
-        "position": "LWF",
-        "team": "FC Barcelona",
-        "style": "Creative Playmaker",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89067152870864_l.png",
-        "type": "bigtime",
-        "finalScore": 0.4928932188134625
-      },
-      {
-        "id": "89068226588798",
-        "name": "Kylian Mbappe",
-        "overall": 86,
-        "position": "LWF",
-        "team": "France",
-        "style": "Goal Poacher",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89068226588798_l.png",
-        "type": "bigtime",
-        "finalScore": 0.4928932188134625
-      },
-      {
-        "id": "89138019757152",
-        "name": "Bruno Fernandes",
-        "overall": 87,
-        "position": "AMF",
-        "team": "Manchester United",
-        "style": "Creative Playmaker",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138019757152_l.png",
-        "type": "bigtime",
-        "finalScore": 0.45000000000000706
-      },
-      {
-        "id": "89063394774510",
-        "name": "Zico",
-        "overall": 87,
-        "position": "AMF",
-        "team": "Brazil",
-        "style": "Classic No. 10",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89063394774510_l.png",
-        "type": "bigtime",
-        "finalScore": 0.45000000000000706
       }
     ],
-    "C": [
-      {
-        "id": "89138019858754",
-        "name": "Lamine Yamal",
-        "overall": 87,
-        "position": "RWF",
-        "team": "FC Barcelona",
-        "style": "Prolific Winger",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138019858754_l.png",
-        "type": "bigtime",
-        "finalScore": -0.3811388300841896
-      }
-    ],
+    "C": [],
     "D": []
   }
 }
