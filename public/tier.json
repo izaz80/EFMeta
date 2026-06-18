@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T04:25:53.938Z",
+  "generated_at": "2026-06-18T04:08:34.050Z",
   "method": "position-relative",
   "note": "Tiers based on Z-score within each position group + card type bonus (Epic +1.5, BigTime +1.2, ShowTime +1.0). A player rated S is elite for their position, not just high overall.",
   "tiers": {
