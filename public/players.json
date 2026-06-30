@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-06-29T04:04:57.092Z",
-  "count": 33,
+  "scraped_at": "2026-06-30T03:49:10.448Z",
+  "count": 27,
   "players": [
     {
       "id": "88044145348075",
@@ -31,6 +31,16 @@
       "style": "Creative Playmaker",
       "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387119495_l.png",
       "type": "epic"
+    },
+    {
+      "id": "89136409091415",
+      "name": "Lionel Messi",
+      "overall": 89,
+      "position": "RWF",
+      "team": "FC Barcelona",
+      "style": "Creative Playmaker",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89136409091415_l.png",
+      "type": "bigtime"
     },
     {
       "id": "88041729329832",
@@ -83,24 +93,24 @@
       "type": "epic"
     },
     {
-      "id": "106653970182270",
-      "name": "Kylian Mbappe",
+      "id": "89137214427270",
+      "name": "Eden Hazard",
       "overall": 88,
-      "position": "CF",
-      "team": "Paris Saint-Germain",
-      "style": "Goal Poacher",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106653970182270_l.png",
-      "type": "showtime"
+      "position": "AMF",
+      "team": "Belgium",
+      "style": "Hole Player",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89137214427270_l.png",
+      "type": "bigtime"
     },
     {
-      "id": "106778255821223",
-      "name": "Erling Haaland",
+      "id": "89136677522134",
+      "name": "George Best",
       "overall": 88,
-      "position": "CF",
-      "team": "Manchester B",
-      "style": "Target Man",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106778255821223_l.png",
-      "type": "showtime"
+      "position": "RWF",
+      "team": "Manchester United",
+      "style": "Prolific Winger",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89136677522134_l.png",
+      "type": "bigtime"
     },
     {
       "id": "88036092150743",
@@ -203,134 +213,64 @@
       "type": "epic"
     },
     {
-      "id": "106765907789637",
-      "name": "Jude Bellingham",
+      "id": "89060978855375",
+      "name": "Romario",
       "overall": 87,
-      "position": "CMF",
-      "team": "Madrid Chamartin B",
-      "style": "Box To Box",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106765907789637_l.png",
-      "type": "showtime"
+      "position": "CF",
+      "team": "Brazil",
+      "style": "Fox In The Box",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89060978855375_l.png",
+      "type": "bigtime"
     },
     {
-      "id": "106654775417922",
-      "name": "Robert Lewandowski",
+      "id": "89061515600624",
+      "name": "Karim Benzema",
+      "overall": 87,
+      "position": "CF",
+      "team": "France",
+      "style": "Deep-Lying Forward",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89061515600624_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89134261635137",
+      "name": "Luis Suarez",
       "overall": 87,
       "position": "CF",
       "team": "FC Barcelona",
       "style": "Goal Poacher",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106654775417922_l.png",
-      "type": "showtime"
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89134261635137_l.png",
+      "type": "bigtime"
     },
     {
-      "id": "106732621770975",
-      "name": "Rodri",
+      "id": "89138019757152",
+      "name": "Bruno Fernandes",
       "overall": 87,
-      "position": "DMF",
-      "team": "Spain",
-      "style": "Orchestrator",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106732621770975_l.png",
-      "type": "showtime"
+      "position": "AMF",
+      "team": "Manchester United",
+      "style": "Creative Playmaker",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138019757152_l.png",
+      "type": "bigtime"
     },
     {
-      "id": "106768055185192",
-      "name": "Virgil van Dijk",
-      "overall": 87,
-      "position": "CB",
-      "team": "Liverpool R",
-      "style": "Build Up",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106768055185192_l.png",
-      "type": "showtime"
-    },
-    {
-      "id": "106768055197475",
-      "name": "Mohamed Salah",
+      "id": "89138019858754",
+      "name": "Lamine Yamal",
       "overall": 87,
       "position": "RWF",
-      "team": "Liverpool R",
+      "team": "FC Barcelona",
       "style": "Prolific Winger",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106768055197475_l.png",
-      "type": "showtime"
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138019858754_l.png",
+      "type": "bigtime"
     },
     {
-      "id": "106773692395554",
-      "name": "Ousmane Dembele",
-      "overall": 87,
-      "position": "CF",
-      "team": "Paris Saint-Germain",
-      "style": "Goal Poacher",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106773692395554_l.png",
-      "type": "showtime"
-    },
-    {
-      "id": "106773692401975",
-      "name": "Vinicius Junior",
-      "overall": 87,
-      "position": "LWF",
-      "team": "Madrid Chamartin B",
-      "style": "Prolific Winger",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106773692401975_l.png",
-      "type": "showtime"
-    },
-    {
-      "id": "106778524258203",
-      "name": "Vitinha",
-      "overall": 87,
+      "id": "89065005387197",
+      "name": "Patrick Vieira",
+      "overall": 86,
       "position": "DMF",
-      "team": "Paris Saint-Germain",
-      "style": "Orchestrator",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106778524258203_l.png",
-      "type": "showtime"
-    },
-    {
-      "id": "106765907771610",
-      "name": "Eberechi Eze",
-      "overall": 86,
-      "position": "AMF",
-      "team": "Arsenal FC",
-      "style": "Hole Player",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106765907771610_l.png",
-      "type": "showtime"
-    },
-    {
-      "id": "106763760282015",
-      "name": "Declan Rice",
-      "overall": 86,
-      "position": "CMF",
       "team": "Arsenal FC",
       "style": "Box To Box",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106763760282015_l.png",
-      "type": "showtime"
-    },
-    {
-      "id": "106759733768760",
-      "name": "Bukayo Saka",
-      "overall": 86,
-      "position": "RWF",
-      "team": "Arsenal FC",
-      "style": "Creative Playmaker",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106759733768760_l.png",
-      "type": "showtime"
-    },
-    {
-      "id": "106652627941559",
-      "name": "Harry Kane",
-      "overall": 86,
-      "position": "CF",
-      "team": "Tottenham WB",
-      "style": "Deep-Lying Forward",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106652627941559_l.png",
-      "type": "showtime"
-    },
-    {
-      "id": "106653970117545",
-      "name": "Marquinhos",
-      "overall": 86,
-      "position": "CB",
-      "team": "Paris Saint-Germain",
-      "style": "Build Up",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106653970117545_l.png",
-      "type": "showtime"
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89065005387197_l.png",
+      "type": "bigtime"
     }
   ]
 }
