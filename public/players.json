@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-07-17T02:44:30.761Z",
-  "count": 15,
+  "scraped_at": "2026-07-19T02:49:53.925Z",
+  "count": 30,
   "players": [
     {
       "id": "88044145351392",
@@ -103,6 +103,26 @@
       "type": "epic"
     },
     {
+      "id": "106653970182270",
+      "name": "Kylian Mbappe",
+      "overall": 88,
+      "position": "CF",
+      "team": "Paris Saint-Germain",
+      "style": "Goal Poacher",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106653970182270_l.png",
+      "type": "showtime"
+    },
+    {
+      "id": "106778255821223",
+      "name": "Erling Haaland",
+      "overall": 88,
+      "position": "CF",
+      "team": "Manchester B",
+      "style": "Target Man",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106778255821223_l.png",
+      "type": "showtime"
+    },
+    {
       "id": "88039044942559",
       "name": "Michel Platini",
       "overall": 87,
@@ -151,6 +171,136 @@
       "style": "Creative Playmaker",
       "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036360588974_l.png",
       "type": "epic"
+    },
+    {
+      "id": "106654775417922",
+      "name": "Robert Lewandowski",
+      "overall": 87,
+      "position": "CF",
+      "team": "FC Barcelona",
+      "style": "Goal Poacher",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106654775417922_l.png",
+      "type": "showtime"
+    },
+    {
+      "id": "106728863696709",
+      "name": "Jude Bellingham",
+      "overall": 87,
+      "position": "AMF",
+      "team": "Madrid Chamartin B",
+      "style": "Hole Player",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106728863696709_l.png",
+      "type": "showtime"
+    },
+    {
+      "id": "106732621770975",
+      "name": "Rodri",
+      "overall": 87,
+      "position": "DMF",
+      "team": "Spain",
+      "style": "Orchestrator",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106732621770975_l.png",
+      "type": "showtime"
+    },
+    {
+      "id": "106768055185192",
+      "name": "Virgil van Dijk",
+      "overall": 87,
+      "position": "CB",
+      "team": "Liverpool R",
+      "style": "Build Up",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106768055185192_l.png",
+      "type": "showtime"
+    },
+    {
+      "id": "106768055197475",
+      "name": "Mohamed Salah",
+      "overall": 87,
+      "position": "RWF",
+      "team": "Liverpool R",
+      "style": "Prolific Winger",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106768055197475_l.png",
+      "type": "showtime"
+    },
+    {
+      "id": "106773692395554",
+      "name": "Ousmane Dembele",
+      "overall": 87,
+      "position": "CF",
+      "team": "Paris Saint-Germain",
+      "style": "Goal Poacher",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106773692395554_l.png",
+      "type": "showtime"
+    },
+    {
+      "id": "106773692401975",
+      "name": "Vinicius Junior",
+      "overall": 87,
+      "position": "LWF",
+      "team": "Madrid Chamartin B",
+      "style": "Prolific Winger",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106773692401975_l.png",
+      "type": "showtime"
+    },
+    {
+      "id": "106778524258203",
+      "name": "Vitinha",
+      "overall": 87,
+      "position": "DMF",
+      "team": "Paris Saint-Germain",
+      "style": "Orchestrator",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106778524258203_l.png",
+      "type": "showtime"
+    },
+    {
+      "id": "106783356096959",
+      "name": "Zion Suzuki",
+      "overall": 87,
+      "position": "GK",
+      "team": "Japan",
+      "style": "Defensive Goalkeeper",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106783356096959_l.png",
+      "type": "showtime"
+    },
+    {
+      "id": "106782819256128",
+      "name": "Pau Cubarsi",
+      "overall": 86,
+      "position": "CB",
+      "team": "Spain",
+      "style": "Build Up",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106782819256128_l.png",
+      "type": "showtime"
+    },
+    {
+      "id": "106782819217056",
+      "name": "Julian Alvarez",
+      "overall": 86,
+      "position": "CF",
+      "team": "Argentina",
+      "style": "Dummy Runner",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106782819217056_l.png",
+      "type": "showtime"
+    },
+    {
+      "id": "106782282337313",
+      "name": "Lisandro Martinez",
+      "overall": 86,
+      "position": "CB",
+      "team": "Argentina",
+      "style": "Destroyer",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106782282337313_l.png",
+      "type": "showtime"
+    },
+    {
+      "id": "106782282266807",
+      "name": "Harry Kane",
+      "overall": 86,
+      "position": "CF",
+      "team": "England",
+      "style": "Deep-Lying Forward",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/106782282266807_l.png",
+      "type": "showtime"
     }
   ]
 }
