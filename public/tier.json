@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T01:16:57.220Z",
+  "generated_at": "2026-08-17T01:18:44.330Z",
   "method": "position-relative",
   "note": "Tiers based on Z-score within each position group + card type bonus (Epic +1.5, BigTime +1.2, ShowTime +1.0). A player rated S is elite for their position, not just high overall.",
   "tiers": {
@@ -62,6 +62,17 @@
         "finalScore": 1.5
       },
       {
+        "id": "88044145248321",
+        "name": "Luis Suarez",
+        "overall": 88,
+        "position": "CF",
+        "team": "Uruguay",
+        "style": "Goal Poacher",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88044145248321_l.png",
+        "type": "epic",
+        "finalScore": 1.5
+      },
+      {
         "id": "88040387119642",
         "name": "Zlatan Ibrahimovic",
         "overall": 88,
@@ -106,13 +117,13 @@
         "finalScore": 1.5
       },
       {
-        "id": "88044145248321",
-        "name": "Luis Suarez",
-        "overall": 88,
-        "position": "CF",
-        "team": "Uruguay",
-        "style": "Goal Poacher",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88044145248321_l.png",
+        "id": "88040387120247",
+        "name": "Petr Cech",
+        "overall": 87,
+        "position": "GK",
+        "team": "Chelsea B",
+        "style": "Defensive Goalkeeper",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387120247_l.png",
         "type": "epic",
         "finalScore": 1.5
       },
@@ -152,24 +163,24 @@
         "finalScore": 0.5
       },
       {
-        "id": "88036092152543",
+        "id": "88039044942559",
         "name": "Michel Platini",
         "overall": 87,
         "position": "AMF",
-        "team": "Piemonte BN",
-        "style": "Classic No. 10",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036092152543_l.png",
+        "team": "France",
+        "style": "Hole Player",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88039044942559_l.png",
         "type": "epic",
         "finalScore": 0.5
       },
       {
-        "id": "88036360588001",
-        "name": "Eric Cantona",
+        "id": "88045487427597",
+        "name": "Diego Costa",
         "overall": 87,
         "position": "CF",
-        "team": "Manchester United",
+        "team": "Chelsea B",
         "style": "Fox In The Box",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036360588001_l.png",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88045487427597_l.png",
         "type": "epic",
         "finalScore": 0.08578643762690508
       }

@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-15T01:16:57.218Z",
-  "count": 15,
+  "scraped_at": "2026-08-17T01:18:44.329Z",
+  "count": 16,
   "players": [
     {
       "id": "88040387119495",
@@ -53,6 +53,26 @@
       "type": "epic"
     },
     {
+      "id": "88044145253792",
+      "name": "Neymar Jr",
+      "overall": 88,
+      "position": "LWF",
+      "team": "Brazil",
+      "style": "Prolific Winger",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88044145253792_l.png",
+      "type": "epic"
+    },
+    {
+      "id": "88044145248321",
+      "name": "Luis Suarez",
+      "overall": 88,
+      "position": "CF",
+      "team": "Uruguay",
+      "style": "Goal Poacher",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88044145248321_l.png",
+      "type": "epic"
+    },
+    {
       "id": "88040387119642",
       "name": "Zlatan Ibrahimovic",
       "overall": 88,
@@ -93,23 +113,33 @@
       "type": "epic"
     },
     {
-      "id": "88044145248321",
-      "name": "Luis Suarez",
-      "overall": 88,
-      "position": "CF",
-      "team": "Uruguay",
-      "style": "Goal Poacher",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88044145248321_l.png",
+      "id": "88039044942559",
+      "name": "Michel Platini",
+      "overall": 87,
+      "position": "AMF",
+      "team": "France",
+      "style": "Hole Player",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88039044942559_l.png",
       "type": "epic"
     },
     {
-      "id": "88044145253792",
-      "name": "Neymar Jr",
-      "overall": 88,
-      "position": "LWF",
-      "team": "Brazil",
-      "style": "Prolific Winger",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88044145253792_l.png",
+      "id": "88040387120247",
+      "name": "Petr Cech",
+      "overall": 87,
+      "position": "GK",
+      "team": "Chelsea B",
+      "style": "Defensive Goalkeeper",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387120247_l.png",
+      "type": "epic"
+    },
+    {
+      "id": "88045487427597",
+      "name": "Diego Costa",
+      "overall": 87,
+      "position": "CF",
+      "team": "Chelsea B",
+      "style": "Fox In The Box",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88045487427597_l.png",
       "type": "epic"
     },
     {
@@ -130,26 +160,6 @@
       "team": "Italy",
       "style": "Defensive Goalkeeper",
       "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036092150743_l.png",
-      "type": "epic"
-    },
-    {
-      "id": "88036092152543",
-      "name": "Michel Platini",
-      "overall": 87,
-      "position": "AMF",
-      "team": "Piemonte BN",
-      "style": "Classic No. 10",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036092152543_l.png",
-      "type": "epic"
-    },
-    {
-      "id": "88036360588001",
-      "name": "Eric Cantona",
-      "overall": 87,
-      "position": "CF",
-      "team": "Manchester United",
-      "style": "Fox In The Box",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88036360588001_l.png",
       "type": "epic"
     }
   ]
