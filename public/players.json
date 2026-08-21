@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-19T01:17:35.273Z",
-  "count": 17,
+  "scraped_at": "2026-08-21T01:20:36.189Z",
+  "count": 18,
   "players": [
     {
       "id": "89138556575063",
@@ -103,16 +103,6 @@
       "type": "bigtime"
     },
     {
-      "id": "89134261635137",
-      "name": "Luis Suarez",
-      "overall": 87,
-      "position": "CF",
-      "team": "FC Barcelona",
-      "style": "Goal Poacher",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89134261635137_l.png",
-      "type": "bigtime"
-    },
-    {
       "id": "89138019757152",
       "name": "Bruno Fernandes",
       "overall": 87,
@@ -170,6 +160,26 @@
       "team": "France",
       "style": "Destroyer",
       "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138288270047_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138556572074",
+      "name": "Cristiano Ronaldo",
+      "overall": 87,
+      "position": "CF",
+      "team": "Portugal",
+      "style": "Goal Poacher",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138556572074_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138556678270",
+      "name": "Kylian Mbappe",
+      "overall": 87,
+      "position": "CF",
+      "team": "France",
+      "style": "Goal Poacher",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138556678270_l.png",
       "type": "bigtime"
     }
   ]

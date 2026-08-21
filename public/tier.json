@@ -1,20 +1,9 @@
 {
-  "generated_at": "2026-08-19T01:17:35.445Z",
+  "generated_at": "2026-08-21T01:20:36.190Z",
   "method": "position-relative",
   "note": "Tiers based on Z-score within each position group + card type bonus (Epic +1.5, BigTime +1.2, ShowTime +1.0). A player rated S is elite for their position, not just high overall.",
   "tiers": {
     "S": [
-      {
-        "id": "89137214427270",
-        "name": "Eden Hazard",
-        "overall": 88,
-        "position": "AMF",
-        "team": "Belgium",
-        "style": "Hole Player",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89137214427270_l.png",
-        "type": "bigtime",
-        "finalScore": 2.9320508075688774
-      },
       {
         "id": "89136140651034",
         "name": "Zlatan Ibrahimovic",
@@ -23,6 +12,17 @@
         "team": "AC Milan",
         "style": "Fox In The Box",
         "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89136140651034_l.png",
+        "type": "bigtime",
+        "finalScore": 3.199999999999993
+      },
+      {
+        "id": "89137214427270",
+        "name": "Eden Hazard",
+        "overall": 88,
+        "position": "AMF",
+        "team": "Belgium",
+        "style": "Hole Player",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89137214427270_l.png",
         "type": "bigtime",
         "finalScore": 2.9320508075688774
       }
@@ -127,7 +127,7 @@
         "style": "Fox In The Box",
         "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89060978855375_l.png",
         "type": "bigtime",
-        "finalScore": 0.6226497308103741
+        "finalScore": 0.6999999999999929
       },
       {
         "id": "89061515600624",
@@ -138,7 +138,29 @@
         "style": "Deep-Lying Forward",
         "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89061515600624_l.png",
         "type": "bigtime",
-        "finalScore": 0.6226497308103741
+        "finalScore": 0.6999999999999929
+      },
+      {
+        "id": "89138556572074",
+        "name": "Cristiano Ronaldo",
+        "overall": 87,
+        "position": "CF",
+        "team": "Portugal",
+        "style": "Goal Poacher",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138556572074_l.png",
+        "type": "bigtime",
+        "finalScore": 0.6999999999999929
+      },
+      {
+        "id": "89138556678270",
+        "name": "Kylian Mbappe",
+        "overall": 87,
+        "position": "CF",
+        "team": "France",
+        "style": "Goal Poacher",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138556678270_l.png",
+        "type": "bigtime",
+        "finalScore": 0.6999999999999929
       },
       {
         "id": "89063394774510",
@@ -148,17 +170,6 @@
         "team": "Brazil",
         "style": "Classic No. 10",
         "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89063394774510_l.png",
-        "type": "bigtime",
-        "finalScore": 0.6226497308103741
-      },
-      {
-        "id": "89134261635137",
-        "name": "Luis Suarez",
-        "overall": 87,
-        "position": "CF",
-        "team": "FC Barcelona",
-        "style": "Goal Poacher",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89134261635137_l.png",
         "type": "bigtime",
         "finalScore": 0.6226497308103741
       },
