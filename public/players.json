@@ -1,7 +1,17 @@
 {
-  "scraped_at": "2026-09-23T03:44:44.624Z",
-  "count": 19,
+  "scraped_at": "2026-09-24T03:36:19.125Z",
+  "count": 30,
   "players": [
+    {
+      "id": "89138556575063",
+      "name": "Lionel Messi",
+      "overall": 90,
+      "position": "SS",
+      "team": "Argentina",
+      "style": "Deep-Lying Forward",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138556575063_l.png",
+      "type": "bigtime"
+    },
     {
       "id": "88045755828950",
       "name": "George Best",
@@ -143,6 +153,16 @@
       "type": "epic"
     },
     {
+      "id": "89138288136169",
+      "name": "Andres Iniesta",
+      "overall": 88,
+      "position": "LMF",
+      "team": "Spain",
+      "style": "Hole Player",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138288136169_l.png",
+      "type": "bigtime"
+    },
+    {
       "id": "88045755827094",
       "name": "Edwin van der Sar",
       "overall": 87,
@@ -191,6 +211,96 @@
       "style": "Defensive Goalkeeper",
       "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387255015_l.png",
       "type": "epic"
+    },
+    {
+      "id": "89139630444046",
+      "name": "Alessandro Del Piero",
+      "overall": 87,
+      "position": "CF",
+      "team": "Italy",
+      "style": "Goal Poacher",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89139630444046_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89060978855375",
+      "name": "Romario",
+      "overall": 87,
+      "position": "CF",
+      "team": "Brazil",
+      "style": "Fox In The Box",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89060978855375_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89061515600624",
+      "name": "Karim Benzema",
+      "overall": 87,
+      "position": "CF",
+      "team": "France",
+      "style": "Deep-Lying Forward",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89061515600624_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89063394774510",
+      "name": "Zico",
+      "overall": 87,
+      "position": "AMF",
+      "team": "Brazil",
+      "style": "Classic No. 10",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89063394774510_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138019757152",
+      "name": "Bruno Fernandes",
+      "overall": 87,
+      "position": "AMF",
+      "team": "Manchester United",
+      "style": "Creative Playmaker",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138019757152_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138019858754",
+      "name": "Lamine Yamal",
+      "overall": 87,
+      "position": "RWF",
+      "team": "FC Barcelona",
+      "style": "Prolific Winger",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138019858754_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138288133079",
+      "name": "Gianluigi Buffon",
+      "overall": 87,
+      "position": "GK",
+      "team": "Italy",
+      "style": "Offensive Goalkeeper",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138288133079_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138288138433",
+      "name": "Philipp Lahm",
+      "overall": 87,
+      "position": "RB",
+      "team": "Germany",
+      "style": "Offensive Wingback",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138288138433_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138288266704",
+      "name": "Ronaldinho Gaucho",
+      "overall": 87,
+      "position": "AMF",
+      "team": "Brazil",
+      "style": "Creative Playmaker",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138288266704_l.png",
+      "type": "bigtime"
     }
   ]
 }
