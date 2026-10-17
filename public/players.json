@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-16T03:32:25.204Z",
+  "scraped_at": "2026-10-17T03:23:07.620Z",
   "count": 17,
   "players": [
     {
@@ -63,16 +63,6 @@
       "type": "bigtime"
     },
     {
-      "id": "89063394774510",
-      "name": "Zico",
-      "overall": 87,
-      "position": "AMF",
-      "team": "Brazil",
-      "style": "Classic No. 10",
-      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89063394774510_l.png",
-      "type": "bigtime"
-    },
-    {
       "id": "89134261635137",
       "name": "Luis Suarez",
       "overall": 87,
@@ -80,6 +70,16 @@
       "team": "FC Barcelona",
       "style": "Goal Poacher",
       "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89134261635137_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89063394774510",
+      "name": "Zico",
+      "overall": 87,
+      "position": "AMF",
+      "team": "Brazil",
+      "style": "Classic No. 10",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89063394774510_l.png",
       "type": "bigtime"
     },
     {

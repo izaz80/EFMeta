@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T03:32:25.205Z",
+  "generated_at": "2026-10-17T03:23:07.621Z",
   "method": "position-relative",
   "note": "Tiers based on Z-score within each position group + card type bonus (Epic +1.5, BigTime +1.2, ShowTime +1.0). A player rated S is elite for their position, not just high overall.",
   "tiers": {
@@ -119,17 +119,6 @@
     ],
     "B": [
       {
-        "id": "89063394774510",
-        "name": "Zico",
-        "overall": 87,
-        "position": "AMF",
-        "team": "Brazil",
-        "style": "Classic No. 10",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89063394774510_l.png",
-        "type": "bigtime",
-        "finalScore": 0.6226497308103741
-      },
-      {
         "id": "89134261635137",
         "name": "Luis Suarez",
         "overall": 87,
@@ -137,6 +126,17 @@
         "team": "FC Barcelona",
         "style": "Goal Poacher",
         "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89134261635137_l.png",
+        "type": "bigtime",
+        "finalScore": 0.6226497308103741
+      },
+      {
+        "id": "89063394774510",
+        "name": "Zico",
+        "overall": 87,
+        "position": "AMF",
+        "team": "Brazil",
+        "style": "Classic No. 10",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89063394774510_l.png",
         "type": "bigtime",
         "finalScore": 0.6226497308103741
       },
