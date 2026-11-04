@@ -1,7 +1,17 @@
 {
-  "scraped_at": "2026-11-03T05:42:06.648Z",
-  "count": 18,
+  "scraped_at": "2026-11-04T05:13:42.676Z",
+  "count": 29,
   "players": [
+    {
+      "id": "89138556575063",
+      "name": "Lionel Messi",
+      "overall": 90,
+      "position": "SS",
+      "team": "Argentina",
+      "style": "Deep-Lying Forward",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138556575063_l.png",
+      "type": "bigtime"
+    },
     {
       "id": "88045755960770",
       "name": "Paolo Maldini",
@@ -173,6 +183,16 @@
       "type": "epic"
     },
     {
+      "id": "89138288136169",
+      "name": "Andres Iniesta",
+      "overall": 88,
+      "position": "LMF",
+      "team": "Spain",
+      "style": "Hole Player",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138288136169_l.png",
+      "type": "bigtime"
+    },
+    {
       "id": "88046292831719",
       "name": "Roberto Baggio",
       "overall": 87,
@@ -181,6 +201,96 @@
       "style": "Hole Player",
       "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88046292831719_l.png",
       "type": "epic"
+    },
+    {
+      "id": "89060978855375",
+      "name": "Romario",
+      "overall": 87,
+      "position": "CF",
+      "team": "Brazil",
+      "style": "Fox In The Box",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89060978855375_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89061515600624",
+      "name": "Karim Benzema",
+      "overall": 87,
+      "position": "CF",
+      "team": "France",
+      "style": "Deep-Lying Forward",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89061515600624_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138288133079",
+      "name": "Gianluigi Buffon",
+      "overall": 87,
+      "position": "GK",
+      "team": "Italy",
+      "style": "Offensive Goalkeeper",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138288133079_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138288266704",
+      "name": "Ronaldinho Gaucho",
+      "overall": 87,
+      "position": "AMF",
+      "team": "Brazil",
+      "style": "Creative Playmaker",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138288266704_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138288270047",
+      "name": "Marcel Desailly",
+      "overall": 87,
+      "position": "CB",
+      "team": "France",
+      "style": "Destroyer",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138288270047_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138556572074",
+      "name": "Cristiano Ronaldo",
+      "overall": 87,
+      "position": "CF",
+      "team": "Portugal",
+      "style": "Goal Poacher",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138556572074_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138556678270",
+      "name": "Kylian Mbappe",
+      "overall": 87,
+      "position": "CF",
+      "team": "France",
+      "style": "Goal Poacher",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138556678270_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138556678367",
+      "name": "Rodri",
+      "overall": 87,
+      "position": "DMF",
+      "team": "Spain",
+      "style": "Orchestrator",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138556678367_l.png",
+      "type": "bigtime"
+    },
+    {
+      "id": "89138556700485",
+      "name": "Jude Bellingham",
+      "overall": 87,
+      "position": "AMF",
+      "team": "England",
+      "style": "Hole Player",
+      "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/89138556700485_l.png",
+      "type": "bigtime"
     }
   ]
 }
