@@ -1,20 +1,9 @@
 {
-  "generated_at": "2026-11-19T06:21:30.511Z",
+  "generated_at": "2026-11-22T05:33:14.450Z",
   "method": "position-relative",
   "note": "Tiers based on Z-score within each position group + card type bonus (Epic +1.5, BigTime +1.2, ShowTime +1.0). A player rated S is elite for their position, not just high overall.",
   "tiers": {
     "S": [
-      {
-        "id": "88045755828950",
-        "name": "George Best",
-        "overall": 89,
-        "position": "RWF",
-        "team": "Northern Ireland",
-        "style": "Prolific Winger",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88045755828950_l.png",
-        "type": "epic",
-        "finalScore": 3.2320508075688776
-      },
       {
         "id": "88041460993514",
         "name": "Ruud Gullit",
@@ -27,6 +16,17 @@
         "finalScore": 3.2320508075688776
       },
       {
+        "id": "88045755828950",
+        "name": "George Best",
+        "overall": 89,
+        "position": "RWF",
+        "team": "Northern Ireland",
+        "style": "Prolific Winger",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88045755828950_l.png",
+        "type": "epic",
+        "finalScore": 2.914213562373105
+      },
+      {
         "id": "88045755960770",
         "name": "Paolo Maldini",
         "overall": 89,
@@ -36,17 +36,6 @@
         "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88045755960770_l.png",
         "type": "epic",
         "finalScore": 2.914213562373105
-      },
-      {
-        "id": "88040387119495",
-        "name": "Pele",
-        "overall": 89,
-        "position": "SS",
-        "team": "Santos FC",
-        "style": "Creative Playmaker",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387119495_l.png",
-        "type": "epic",
-        "finalScore": 2.5
       },
       {
         "id": "88044145348075",
@@ -67,6 +56,17 @@
         "team": "Chelsea B",
         "style": "Prolific Winger",
         "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88045755863174_l.png",
+        "type": "epic",
+        "finalScore": 2.5
+      },
+      {
+        "id": "88040387119495",
+        "name": "Pele",
+        "overall": 89,
+        "position": "SS",
+        "team": "Santos FC",
+        "style": "Creative Playmaker",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88040387119495_l.png",
         "type": "epic",
         "finalScore": 2.5
       }
@@ -97,28 +97,6 @@
         "finalScore": 0.9226497308103742
       },
       {
-        "id": "88041460894376",
-        "name": "Gareth Bale",
-        "overall": 88,
-        "position": "RWF",
-        "team": "Madrid Chamartin B",
-        "style": "Prolific Winger",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88041460894376_l.png",
-        "type": "epic",
-        "finalScore": 0.9226497308103742
-      },
-      {
-        "id": "88041460993461",
-        "name": "Luis Figo",
-        "overall": 88,
-        "position": "RWF",
-        "team": "Portugal",
-        "style": "Cross Specialist",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88041460993461_l.png",
-        "type": "epic",
-        "finalScore": 0.9226497308103742
-      },
-      {
         "id": "88044145248321",
         "name": "Luis Suarez",
         "overall": 88,
@@ -141,15 +119,26 @@
         "finalScore": 0.9226497308103742
       },
       {
-        "id": "88047366601026",
-        "name": "Lamine Yamal",
+        "id": "88041460894376",
+        "name": "Gareth Bale",
         "overall": 88,
         "position": "RWF",
-        "team": "FC Barcelona",
-        "style": "Roaming Flank",
-        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88047366601026_l.png",
+        "team": "Madrid Chamartin B",
+        "style": "Prolific Winger",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88041460894376_l.png",
         "type": "epic",
-        "finalScore": 0.9226497308103742
+        "finalScore": 0.7928932188134625
+      },
+      {
+        "id": "88041460993461",
+        "name": "Luis Figo",
+        "overall": 88,
+        "position": "RWF",
+        "team": "Portugal",
+        "style": "Cross Specialist",
+        "imageUrl": "https://efimg.com/efootballhub22/images/player_cards/88041460993461_l.png",
+        "type": "epic",
+        "finalScore": 0.7928932188134625
       },
       {
         "id": "88041460996837",
